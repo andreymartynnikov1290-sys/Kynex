@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050606"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>KYNEX — Intelligent Trading Ecosystem</title>
+<style>
+:root{--bg:#050606;--panel:#111214;--panel2:#1b1c1f;--line:#292b2e;--muted:#92969c;--text:#f5f6f7;--white:#fff;--accent:#ffffff;--green:#ffffff;--red:#ff5964;--blue:#8db7ff;--radius:16px;--nav:70px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.01em}button,input,textarea,select{font:inherit}button{cursor:pointer;color:inherit}.app{min-height:100vh;display:grid;grid-template-columns:238px 1fr}.sidebar{height:100vh;position:sticky;top:0;border-right:1px solid var(--line);padding:24px 15px;display:flex;flex-direction:column;background:#090a0c;z-index:5}.brand{display:flex;align-items:center;gap:11px;padding:4px 9px 30px}.logo{width:34px;height:34px;border:1px solid #626b76;border-radius:11px;display:grid;place-items:center;font-weight:800;letter-spacing:-2px;font-size:17px;background:linear-gradient(145deg,#252a30,#0a0b0d)}.brand strong{font-size:17px;letter-spacing:.19em}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.2em;margin-top:2px}.nav-label,.eyebrow{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#747e8a;font-weight:700}.nav-label{padding:0 11px 9px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;border-radius:11px;padding:12px 11px;display:flex;align-items:center;gap:12px;text-align:left;color:#9da5b0;font-size:13px;transition:.2s}.nav button .ico{width:19px;text-align:center;font-size:16px}.nav button.active,.nav button:hover{background:#1a1e23;color:#fff}.nav button.active:before{content:"";width:3px;height:19px;background:var(--accent);border-radius:4px;margin-left:-11px;margin-right:8px}.side-bottom{margin-top:auto}.connection{border:1px solid var(--line);background:#101317;border-radius:13px;padding:13px;margin-bottom:14px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px #ffffff66;margin-right:7px}.connection small{color:var(--muted);font-size:10px}.user{display:flex;align-items:center;gap:10px;padding:9px}.avatar{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#242a30;color:var(--accent);font-weight:700}.user small{display:block;color:var(--muted);font-size:10px}.main{min-width:0}.topbar{height:70px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;position:sticky;top:0;background:#090a0beF;backdrop-filter:blur(18px);z-index:4}.crumb{color:#a7afb9;font-size:12px}.crumb b{color:#fff;font-weight:600}.top-actions{display:flex;align-items:center;gap:10px}.demo{font-size:9px;letter-spacing:.13em;border:1px solid #555d38;color:var(--accent);border-radius:20px;padding:6px 9px}.icon-btn{width:34px;height:34px;border:1px solid var(--line);border-radius:10px;background:#111419}.content{max-width:1500px;margin:auto;padding:29px 30px 80px}.page{display:none;animation:fade .22s ease}.page.active{display:block}@keyframes fade{from{opacity:.3;transform:translateY(4px)}to{opacity:1;transform:none}}.page-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:23px}.page-head h1{font-size:27px;letter-spacing:-.04em;margin:5px 0 4px}.sub{color:var(--muted);font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#171b20;padding:9px 13px;border-radius:10px;font-size:11px;color:#e5e9ee;transition:.18s}.btn:hover{border-color:#6b747e;background:#20252b}.btn.primary{background:var(--accent);border-color:var(--accent);color:#0b0d08;font-weight:750}.btn.danger{border-color:#6d3438;color:#ff9292;background:#251416}.btn.tiny{padding:6px 9px;font-size:10px}.grid{display:grid;gap:14px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:14px}.card{background:#141518;border:1px solid var(--line);border-radius:var(--radius);padding:17px;min-width:0}.card-title{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#aab2bc;font-size:11px}.metric{font-size:25px;font-weight:650;letter-spacing:-.045em;margin:12px 0 4px}.delta{font-size:10px;color:#a8b0b8}.muted{color:var(--muted)}.tinytext{font-size:10px;color:var(--muted)}.home-grid{grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr)}.chart-card{min-height:310px}.chart-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.chart-value{font-size:29px;font-weight:650;letter-spacing:-.05em;margin-top:10px}.chart-svg{width:100%;height:180px;margin-top:15px;overflow:visible}.chart-svg .gridline{stroke:#252b32;stroke-width:1;stroke-dasharray:3 6}.chart-svg .line{fill:none;stroke:#ffffff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.chart-svg .area{fill:url(#area)}.pill{font-size:9px;padding:5px 8px;border-radius:20px;background:#1a2024;color:#aeb7c1;border:1px solid #2a3037}.pill.good{color:#a8b0b8;border-color:#284737;background:#122019}.pill.warn{color:#ffd17d;border-color:#5b4927;background:#201b11}.pill.bad{color:#ff9999;border-color:#573033;background:#211315}.activity{display:grid;gap:0}.activity-row{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #22272d}.activity-row:last-child{border:0}.activity-icon{width:28px;height:28px;border-radius:9px;background:#20262b;display:grid;place-items:center;flex:none}.activity-row b{font-size:11px;font-weight:600}.activity-row p{font-size:10px;color:var(--muted);margin:3px 0 0}.activity-row time{margin-left:auto;color:#6f7883;font-size:9px;white-space:nowrap}.section-title{font-size:14px;font-weight:650;margin:23px 0 12px;display:flex;align-items:center;justify-content:space-between}.agent-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.agent{padding:14px;cursor:pointer;transition:.2s}.agent:hover,.agent.selected{border-color:#626b74;transform:translateY(-1px)}.agent-top{display:flex;justify-content:space-between;align-items:center}.agent-symbol{width:32px;height:32px;border-radius:10px;background:#20262b;display:grid;place-items:center;font-size:15px}.agent b{display:block;font-size:12px;margin-top:12px}.agent p{margin:4px 0 11px;font-size:10px;color:var(--muted)}.status{font-size:9px;color:#a8b0b8}.status:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:currentColor;margin:0 6px 1px 0}.status.idle{color:#9aa2ad}.status.warn{color:#ffd17d}.two{grid-template-columns:1fr 1fr}.three{grid-template-columns:repeat(3,1fr)}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}.table{width:100%;border-collapse:collapse;min-width:550px}.table th{text-align:left;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#7f8994;background:#12151a;padding:12px 14px;font-weight:600}.table td{padding:13px 14px;border-top:1px solid #242930;font-size:11px}.asset{display:flex;align-items:center;gap:9px}.coin{width:27px;height:27px;border-radius:50%;background:#242a30;display:grid;place-items:center;font-size:10px;font-weight:700}.positive{color:#a8b0b8}.negative{color:var(--red)}.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}.tab{border:1px solid transparent;border-radius:9px;padding:8px 11px;background:transparent;color:#9da6b0;font-size:10px}.tab.active{background:#20252b;border-color:#343b43;color:#fff}.market-layout{grid-template-columns:minmax(0,1.45fr) minmax(260px,.8fr)}.market-chart{height:300px}.market-chart svg{height:230px}.search{width:100%;background:#0d1013;border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:#fff;outline:none}.search:focus,textarea:focus{border-color:#7b858f}.account-grid{grid-template-columns:1.2fr .8fr}.balance-card{background:#17191b;position:relative;overflow:hidden}.balance-card:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #353e45;border-radius:50%;right:-70px;top:-80px;box-shadow:0 0 0 22px #ffffff04,0 0 0 48px #ffffff03}.balance-card .metric{font-size:34px}.balance-meta{display:flex;gap:26px;margin-top:20px}.balance-meta small{display:block;color:var(--muted);font-size:9px}.balance-meta b{font-size:13px}.switch{display:flex;align-items:center;gap:10px}.toggle{width:35px;height:20px;background:#353b42;border-radius:20px;padding:3px;display:inline-flex;transition:.2s;border:0}.toggle:after{content:"";width:14px;height:14px;border-radius:50%;background:#fff;transition:.2s}.toggle.on{background:var(--accent)}.toggle.on:after{transform:translateX(15px);background:#111}.hq{position:relative;min-height:370px;overflow:hidden;background:#101214}.network{width:100%;height:330px;display:block}.network line{stroke-width:1.4;opacity:.7;stroke-dasharray:5 6}.node{cursor:pointer}.node circle{fill:#1d2429;stroke:#626c75;stroke-width:1.2}.node.core circle{fill:#ffffff;stroke:#ffffff}.node text{fill:#e7ebef;font-size:9px;text-anchor:middle}.node.core text{fill:#111;font-weight:800}.node.active circle{stroke:#ffffff;stroke-width:2.5}.node .pulse{fill:none;stroke:#ffffff;opacity:.45}.agent-detail{min-height:170px}.chat{display:flex;flex-direction:column;height:430px}.chat-log{flex:1;overflow:auto;display:flex;flex-direction:column;gap:11px;padding:12px 0}.bubble{max-width:85%;padding:11px 13px;border:1px solid var(--line);border-radius:13px;background:#171b20;font-size:11px}.bubble.user{align-self:flex-end;background:#222b18;border-color:#3c4926}.bubble small{display:block;color:var(--muted);font-size:9px;margin-bottom:5px}.chat-compose{display:flex;gap:8px;padding-top:12px;border-top:1px solid var(--line)}.chat-compose input{min-width:0;flex:1;background:#0d1013;border:1px solid var(--line);border-radius:10px;padding:11px;color:#fff;outline:none}.risk-bar{height:6px;border-radius:10px;background:#252a30;overflow:hidden;margin:10px 0}.risk-bar span{display:block;height:100%;background:var(--accent);border-radius:10px}.setting{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid var(--line)}.setting:last-child{border:0}.setting b{font-size:11px}.setting p{font-size:10px;color:var(--muted);margin:4px 0 0}.mobile-nav{display:none}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;background:#eaffaa;color:#10130a;padding:10px 15px;border-radius:11px;font-size:11px;font-weight:700;z-index:20;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}.disclaimer{font-size:9px;color:#7c858f;margin-top:20px;text-align:center}
+@media(max-width:1100px){.app{grid-template-columns:205px 1fr}.agent-grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.app{display:block;padding-bottom:calc(var(--nav) + env(safe-area-inset-bottom))}.sidebar{display:none}.topbar{height:56px;padding:0 15px}.content{padding:21px 14px 35px}.page-head{align-items:flex-start;flex-direction:column;margin-bottom:17px}.page-head h1{font-size:24px}.stats{gap:9px}.card{padding:13px;border-radius:14px}.metric{font-size:21px}.home-grid,.market-layout,.account-grid,.two{grid-template-columns:1fr}.three{grid-template-columns:1fr 1fr}.agent-grid{grid-template-columns:1fr 1fr;gap:9px}.agent{padding:12px}.chart-card{min-height:270px}.chart-svg{height:155px}.chart-value{font-size:25px}.section-title{margin-top:19px}.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;height:calc(var(--nav) + env(safe-area-inset-bottom));padding:7px 5px calc(7px + env(safe-area-inset-bottom));background:#090a0cf5;backdrop-filter:blur(18px);border-top:1px solid var(--line);z-index:10;justify-content:space-around}.mobile-nav button{background:transparent;border:0;color:#7f8994;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:8px;min-width:0;flex:1}.mobile-nav button span{font-size:17px}.mobile-nav button.active{color:var(--accent)}.demo{font-size:8px}.top-actions{gap:6px}.icon-btn{width:31px;height:31px}.hq{min-height:290px}.network{height:280px}.chat{height:390px}.table td,.table th{padding:11px}.balance-meta{gap:17px}.actions{width:100%}.actions .btn{flex:1}.market-chart{height:270px}.market-chart svg{height:205px}}
+@media(max-width:380px){.stats{grid-template-columns:1fr 1fr}.agent-grid{grid-template-columns:1fr 1fr}.metric{font-size:19px}.card-title{font-size:10px}.page-head h1{font-size:22px}}
+
+/* KYNEX visual refinement inspired by the supplied mobile trading reference */
+:root{color-scheme:dark}
+.card{box-shadow:0 8px 26px #0005;transition:border-color .22s,transform .22s,background .22s}
+.card:hover{border-color:#3a4140}
+.metric,.chart-value{font-variant-numeric:tabular-nums}
+.chart-svg .line{stroke:var(--green);filter:drop-shadow(0 0 4px #ffffff55);stroke-width:2.5}
+.chart-svg .area{fill:url(#area)}
+.live-indicator{display:inline-flex;align-items:center;gap:7px;color:#a8b0b8;font-size:10px;font-weight:700;letter-spacing:.08em}
+.live-indicator:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px #ffffff20;animation:livePulse 1.8s infinite}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 3px #ffffff1c}50%{box-shadow:0 0 0 7px #ffffff08}}
+@keyframes riseIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.activity-row{transition:background .18s;padding:12px 9px;border-radius:10px}
+.activity-row:hover{background:#ffffff06}
+.activity-icon{border-radius:50%;background:#202326;border:1px solid #303438}
+.agent{background:#17191b;border-color:#2b2e30}
+.agent-symbol{border-radius:12px;background:#222528}
+.agent-grid{gap:10px}
+.pill.good{color:#ffffff;border-color:#1b573b;background:#10251a}
+.btn.primary{box-shadow:0 0 18px #ffffff18}
+.demo{color:#ffffff;border-color:#205c3d}
+.mobile-nav{background:#080909f5;border-top-color:#26292b}
+.mobile-nav button.active{color:#ffffff}
+/* superseded by new nav-ico styles */
+.home-market-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:14px 0 4px}
+.market-chip{background:#141618;border:1px solid #292d2f;border-radius:13px;padding:11px 12px;min-width:0}
+.market-chip .ticker{font-size:10px;color:#a3a8ad;font-weight:650;letter-spacing:.08em}
+.market-chip strong{display:block;font-size:15px;margin:5px 0 2px;font-variant-numeric:tabular-nums}
+.market-chip small{font-size:10px;color:#a8b0b8}
+.home-lower{grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr);margin-top:14px}
+.position-row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #292c2f}
+.position-row:last-child{border:0}
+.position-coin{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:#24272a;font-size:11px;font-weight:800;flex:none}
+.position-main{min-width:0;flex:1}.position-main b{font-size:11px;display:block}.position-main small{font-size:9px;color:var(--muted)}
+.position-value{text-align:right;font-size:11px;font-weight:700;white-space:nowrap}.position-value small{display:block;font-size:9px;color:#a8b0b8;font-weight:500}
+.risk-meter{height:7px;border-radius:20px;background:#2b2e30;overflow:hidden;margin:12px 0 7px}.risk-meter span{display:block;height:100%;width:31%;border-radius:20px;background:linear-gradient(90deg,#ffffff,#ffffff)}
+@media(max-width:760px){
+ .content{padding-top:17px;padding-left:12px;padding-right:12px}
+ .page-head h1{font-size:22px}
+ #page-home .page-head{margin-bottom:12px}
+ #page-home .page-head .actions{display:none}
+ #page-home .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #page-home .stats .card{padding:12px;min-height:91px}
+ #page-home .stats .metric{font-size:21px;margin:9px 0 2px}
+ #page-home .home-grid{gap:9px}
+ #page-home .chart-card{min-height:0;padding:14px 12px}
+ #page-home .chart-svg{height:142px;margin-top:9px}
+ #page-home .chart-value{font-size:26px}
+ #page-home .home-lower{grid-template-columns:1fr;gap:9px}
+ #page-home .home-market-strip{gap:7px}
+ #page-home .market-chip{padding:9px 8px}
+ #page-home .market-chip strong{font-size:13px}
+ #page-home .agent-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding:1px 1px 8px;scrollbar-width:none}
+ #page-home .agent-grid::-webkit-scrollbar{display:none}
+ #page-home .agent-grid .agent{min-width:155px;scroll-snap-align:start}
+ .activity-row{padding:10px 5px}
+ .mobile-nav{height:calc(66px + env(safe-area-inset-bottom));padding-bottom:calc(5px + env(safe-area-inset-bottom))}
+}
+@media(max-width:380px){#page-home .metric{font-size:18px}#page-home .home-market-strip{gap:5px}.market-chip .ticker{font-size:9px}.market-chip strong{font-size:12px}}
+
+
+/* KYNEX premium responsive refinement */
+:root{--accent:#ffffff;--green:#ffffff;--panel:#101214;--line:#25292d;--radius:18px}
+body{background:radial-gradient(ellipse at 50% -20%,#171c16 0%,#08090a 42%,#050606 75%);}
+.card{background:linear-gradient(155deg,#151719 0%,#101214 100%);border-color:#282d30;box-shadow:0 10px 30px #00000018;}
+.page-head h1{letter-spacing:-.055em;font-weight:720}.eyebrow{color:#b8d47c;letter-spacing:.2em}
+.btn,.tab,.icon-btn{transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
+.btn:active,.tab:active,.icon-btn:active{transform:scale(.97)}
+.btn.primary{box-shadow:0 5px 18px #ffffff18}.btn.primary:hover{background:#ffffff;border-color:#ffffff}
+.nav button.active,.nav button:hover{background:linear-gradient(90deg,#ffffff12,#ffffff04);color:#fff}
+.nav button.active:before{background:var(--accent);box-shadow:0 0 12px #ffffff66}
+.pill.good,.status{color:var(--accent)}.pill.good{border-color:#45552c;background:#171f11}
+.chart-svg .line{stroke:var(--accent)}.chart-svg .area{opacity:.85}
+.market-chip,.position-row,.setting{border-color:#292e31}
+.metric,.chart-value,.position-value{font-variant-numeric:tabular-nums;letter-spacing:-.045em}
+/* HQ: living but explicitly simulated agent activity */
+.hq{background:radial-gradient(ellipse at 50% 45%,#1c2418 0%,#111416 48%,#0d0f10 100%);}
+.network{height:clamp(240px,32vw,340px);overflow:visible}
+.network line{stroke-dasharray:5 6;animation:netFlow 2.2s linear infinite}
+.node circle{transition:fill .25s,stroke .25s,filter .25s}.node:not(.core) circle{animation:nodeBreath 3.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.node:nth-of-type(2n) circle{animation-delay:-1.4s}.node:nth-of-type(3n) circle{animation-delay:-2.3s}
+.node.active circle,.node:hover circle{stroke:var(--accent);filter:drop-shadow(0 0 8px #ffffff70)}
+.node.core circle:first-child{filter:drop-shadow(0 0 18px #ffffff55)}
+.node .pulse{animation:corePulse 2.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes corePulse{0%{opacity:.65;transform:scale(.84)}100%{opacity:0;transform:scale(1.5)}}
+@keyframes nodeBreath{0%,100%{filter:drop-shadow(0 0 0 #ffffff00)}50%{filter:drop-shadow(0 0 7px #ffffff44)}}
+@keyframes flowLine{to{stroke-dashoffset:-48}}
+.live-hq{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0 2px;font-size:10px;color:#aeb6ad}
+.live-hq .live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px #ffffff;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.35}}
+.hq-feed{display:grid;gap:8px;margin-top:12px}.hq-event{display:flex;gap:9px;align-items:flex-start;padding:9px 10px;background:#ffffff04;border:1px solid #ffffff0a;border-radius:11px;animation:eventIn .35s ease}
+.hq-event .event-led{width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:5px;flex:none;box-shadow:0 0 8px #ffffff66}
+.hq-event b{font-size:10px}.hq-event small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+@keyframes eventIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.agent.selected{border-color:#ffffff;box-shadow:0 0 0 1px #ffffff20,0 12px 26px #0004}
+.agent .agent-symbol{background:linear-gradient(145deg,#252d1b,#171b18);border:1px solid #343d2a}
+/* mobile first refinements */
+@media(max-width:760px){
+ body{font-size:13px}.app{display:block}.sidebar{display:none}.topbar{height:54px;padding:0 13px}.crumb{font-size:11px}.top-actions{gap:6px}.demo{font-size:8px;padding:5px 7px}.icon-btn{width:31px;height:31px}
+ .content{padding:14px 11px calc(92px + env(safe-area-inset-bottom));max-width:100%;}
+ .page-head{align-items:flex-start;margin-bottom:15px;gap:10px}.page-head h1{font-size:23px;margin:4px 0}.page-head .sub{font-size:11px;line-height:1.45;max-width:32ch}.page-head>.actions{display:none}
+ .card{border-radius:15px;padding:13px}.section-title{margin:18px 0 10px;font-size:13px}.grid{gap:9px}
+ #page-market .stats,#page-agents .stats{grid-template-columns:repeat(2,minmax(0,1fr))}#page-market .stats .card,#page-agents .stats .card{padding:12px;min-height:88px}#page-market .metric,#page-agents .metric{font-size:20px;margin:8px 0 3px}
+ .market-layout,.account-grid,.two,.home-grid{grid-template-columns:minmax(0,1fr)}
+ .market-chart{min-height:0}.market-chart .chart-svg{height:190px}.tabs{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;padding-bottom:3px}.tabs::-webkit-scrollbar{display:none}.tab{white-space:nowrap;flex:none;padding:8px 10px}
+ .table-wrap{border-radius:12px}.table{min-width:570px}.table th,.table td{padding:11px 10px}
+ .balance-card .metric{font-size:30px}.balance-meta{gap:16px;flex-wrap:wrap}.balance-meta b{font-size:12px}
+ #page-agents .grid.two{grid-template-columns:minmax(0,1fr)}#page-agents .hq{min-height:0;padding:12px}.network{height:245px;max-height:245px}.hq-feed{grid-template-columns:1fr 1fr}.hq-event{padding:8px}.agent-detail{min-height:0}
+ #page-agents .agent-grid{grid-template-columns:repeat(2,minmax(0,1fr));display:grid;gap:8px}#page-agents .agent{padding:12px}#page-agents .agent b{font-size:11px}
+ #page-lab .tabs{margin:0 -2px 12px}#page-lab .chat{height:min(56vh,470px);min-height:360px}#page-lab .chat-compose{position:sticky;bottom:0;background:#141618;padding:10px 0 0}#chatInput{font-size:16px;min-height:42px}.chat-compose .btn{padding:9px 10px}
+ #page-lab .stats{grid-template-columns:repeat(2,minmax(0,1fr))}#page-lab .stats .card{padding:12px}.setting{gap:9px}.setting>div{min-width:0}.setting b{font-size:11px}.setting p{font-size:9px}
+ .mobile-nav{height:calc(66px + env(safe-area-inset-bottom));padding:5px 4px calc(5px + env(safe-area-inset-bottom));background:#090b0bf2;border-top:1px solid #292e31;backdrop-filter:blur(20px)}.mobile-nav button{font-size:9px;gap:3px}.mobile-nav button span{font-size:17px}
+}
+@media(max-width:390px){.content{padding-left:9px;padding-right:9px}.page-head h1{font-size:21px}.hq-feed{grid-template-columns:1fr}.network{height:220px}.card{padding:11px}.market-chip strong{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+
+
+.task-console{padding:16px}.task-entry{display:flex;gap:8px}.task-entry input{flex:1;min-width:0}.task-toolbar{display:flex;align-items:center;gap:14px;margin:12px 0 16px;flex-wrap:wrap}.task-toolbar button{margin-left:auto}.task-columns{grid-template-columns:1.05fr .95fr}.task-heading{margin-bottom:10px}.task-list,.interaction-log{display:grid;gap:8px;max-height:330px;overflow:auto;padding-right:3px}.task-item,.log-item{background:#0d1013;border:1px solid #252b31;border-radius:11px;padding:10px}.task-item-top,.log-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.task-item b,.log-item b{font-size:11px}.task-item p,.log-item p{margin:6px 0 0;color:#a0a8b2;font-size:10px;line-height:1.45}.task-progress{height:4px;background:#252b31;border-radius:8px;overflow:hidden;margin-top:9px}.task-progress span{height:100%;display:block;background:var(--accent);width:0;transition:width .25s}.task-agents{font-size:9px;color:#7f8994;margin-top:7px}.log-item{border-left:2px solid #3a424a}.log-item[data-kind="result"]{border-left-color:var(--accent)}.log-item[data-kind="risk"]{border-left-color:#e7b65e}.log-item time{font-size:9px;color:#707b86;white-space:nowrap}.empty-state{padding:17px 10px;text-align:center;color:#78828d;font-size:10px;border:1px dashed #30363d;border-radius:10px}.engine-note{font-size:9px;color:#77818b;line-height:1.5;margin-top:14px;padding-top:11px;border-top:1px solid #252b31}.node.busy circle{stroke:var(--accent);stroke-width:3;filter:drop-shadow(0 0 5px #ffffff88)}.node.done circle{stroke:#87939e}.agent.busy{border-color:#ffffff!important;box-shadow:0 0 0 1px #ffffff22}.agent.busy .status{color:var(--accent)}.agent.done .status{color:#9aa8b5}
+@media(max-width:760px){.task-console{padding:12px}.task-entry{flex-direction:column}.task-entry .btn{width:100%}.task-columns{grid-template-columns:1fr}.task-list,.interaction-log{max-height:230px}.task-toolbar{gap:9px}.task-toolbar button{margin-left:auto}}
+
+
+/* KYNEX v3 visual refinement — premium monochrome, restrained acid accents */
+:root{--bg:#050505;--panel:#101112;--panel2:#17191b;--line:#25282b;--muted:#858b92;--accent:#ffffff;--green:#ffffff;--radius:17px}
+body{background:radial-gradient(ellipse at 72% -18%,#1b2010 0%,transparent 38%),#050505;letter-spacing:0}
+.sidebar{background:rgba(8,9,9,.96);border-right-color:#202326}
+.logo{border-color:#535b3d;background:linear-gradient(145deg,#252a19,#0a0b09);color:var(--accent);box-shadow:inset 0 0 18px #ffffff0c}
+.brand strong{letter-spacing:.22em}
+.nav button{border-radius:10px;color:#92989e}
+.nav button.active,.nav button:hover{background:linear-gradient(90deg,#ffffff12,transparent 92%);color:#fff}
+.nav button.active:before{background:var(--accent);box-shadow:0 0 12px #ffffff55}
+.topbar{background:#080909eF;border-bottom-color:#222527}
+.demo{border-color:#42492b;color:var(--accent);background:#ffffff08}
+.content{padding-top:32px}
+.page-head{margin-bottom:25px}
+.page-head h1{font-size:clamp(24px,2.2vw,31px);font-weight:680;letter-spacing:-.055em}
+.eyebrow{color:#a2ad76;letter-spacing:.2em}
+.sub{line-height:1.6;color:#9ba1a6}
+.card{background:linear-gradient(145deg,#151719,#101112 72%);border-color:#282c2f;box-shadow:0 8px 28px #00000016;transition:border-color .2s,transform .2s,box-shadow .2s}
+.card:hover{border-color:#3a403c}
+.metric{font-variant-numeric:tabular-nums;letter-spacing:-.055em}
+.btn{border-radius:10px;min-height:37px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#101108;box-shadow:0 4px 18px #ffffff14}
+.btn.primary:hover{background:#e5ff82;border-color:#e5ff82;transform:translateY(-1px)}
+.pill{background:#191c1e;border-color:#303437}
+.pill.good{color:#a8b0b8;border-color:#24503d;background:#102018}
+.pill.warn{color:#e8c56e}
+.chart-svg .line{stroke:var(--accent)}
+.chart-svg .gridline{stroke:#292d2e}
+.agent{background:linear-gradient(145deg,#151719,#101112)}
+.agent-symbol{background:#20231b;color:var(--accent);border:1px solid #343a25}
+.agent:hover,.agent.selected{border-color:#879a36;box-shadow:0 8px 22px #0005}
+.hq{background:radial-gradient(ellipse at 50% 43%,#191e14,#101214 65%);border-color:#343a2a}
+.network line{opacity:.7}
+.node.core circle{fill:var(--accent);stroke:var(--accent)}
+.node.core text{fill:#14170b}
+.node.active circle{stroke:var(--accent)}
+.node .pulse{stroke:var(--accent)}
+.task-console{background:linear-gradient(145deg,#151719,#0f1112);border-color:#34392b}
+.task-item,.log-item{background:#0b0d0e;border-color:#292e2f}
+.task-progress span{background:var(--accent);box-shadow:0 0 10px #ffffff55}
+.log-item[data-kind="result"]{border-left-color:#a8b0b8}
+.log-item[data-kind="risk"]{border-left-color:#e7b65e}
+.live-dot{background:var(--accent);box-shadow:0 0 12px #ffffff77}
+.mobile-nav{background:#080909f5;border-top:1px solid #292d2f;backdrop-filter:blur(22px)}
+.mobile-nav button{color:#82898f}
+.mobile-nav button.active{color:var(--accent)}
+/* superseded by new nav-ico styles */
+input,textarea,select{accent-color:var(--accent)}
+.search:focus,.chat-compose input:focus{border-color:#829239;box-shadow:0 0 0 3px #ffffff10}
+.table th{background:#101213}
+.table td{border-top-color:#25292b}
+.toast{border-color:#434a2b;box-shadow:0 12px 40px #0009}
+/* Touch-first mobile layout: less wasted space, no horizontal overflow. */
+@media(max-width:760px){
+ .content{padding:17px 13px calc(92px + env(safe-area-inset-bottom))}
+ .topbar{height:54px;padding:0 13px}
+ .crumb{font-size:11px}
+ .top-actions{gap:6px}.demo{font-size:8px;padding:5px 7px}
+ .page-head{align-items:flex-start;margin-bottom:15px;gap:10px}
+ .page-head h1{font-size:23px;margin-top:4px}
+ .page-head .sub{font-size:11px;max-width:35ch}
+ .stats{gap:8px;margin-bottom:9px}
+ .stats .card{padding:12px;min-height:82px}
+ .stats .metric{font-size:20px;margin:8px 0 2px}
+ .card{border-radius:14px;padding:13px}
+ .grid{gap:9px}
+ .section-title{font-size:13px;margin:18px 0 9px}
+ .home-grid,.market-layout,.account-grid,.two{grid-template-columns:minmax(0,1fr)}
+ .chart-card{min-height:0}.chart-svg{height:145px;margin-top:8px}
+ .chart-value{font-size:25px}
+ .agent-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .agent{padding:11px}.agent b{font-size:11px;margin-top:9px}.agent p{font-size:9px}
+ .hq{min-height:0}.network{height:230px}
+ .task-console{padding:11px}.task-entry{gap:7px}.task-entry .btn{min-height:42px}
+ .task-toolbar{margin:10px 0 12px}
+ .task-list,.interaction-log{max-height:260px}
+ .chat{height: min(62vh,500px)}
+ .chat-compose{gap:6px}.chat-compose .btn{padding:9px 10px}
+ .mobile-nav{height:calc(64px + env(safe-area-inset-bottom));padding:5px 5px calc(5px + env(safe-area-inset-bottom));}
+ .mobile-nav button{font-size:9px;min-width:0}
+}
+@media(max-width:390px){
+ .content{padding-left:10px;padding-right:10px}
+ .page-head h1{font-size:21px}
+ .stats .card{padding:10px}.stats .metric{font-size:18px}
+ .network{height:205px}
+ .mobile-nav button{font-size:8px}
+}
+@media(hover:none){.card:hover{transform:none}.btn:hover{transform:none}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+
+/* HOME COMMAND CENTER V4 */
+.home-hero{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin:2px 0 19px}.home-hero h1{font-size:28px;letter-spacing:-.055em;margin:7px 0 5px}.home-hero-actions{display:flex;align-items:center;gap:10px}.home-demo-tag,.home-feed-label,.core-state{font-size:9px;letter-spacing:.12em;color:#9da5ad;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}.home-demo-tag{border:1px solid #393e31;border-radius:20px;padding:8px 10px}.home-demo-tag i,.home-feed-label i,.core-state i{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 9px #ffffff55}.home-kpis{display:grid;grid-template-columns:1.3fr repeat(3,minmax(0,1fr));gap:10px;margin-bottom:12px}.home-kpi{position:relative;overflow:hidden;min-width:0;background:linear-gradient(145deg,#17191b,#101113);border:1px solid #292c2f;border-radius:15px;padding:15px 16px;min-height:116px}.home-kpi-main{background:linear-gradient(125deg,#1d2116,#121411 72%);border-color:#41482b}.kpi-label{display:flex;justify-content:space-between;align-items:center;color:#aab0b6;font-size:10px}.kpi-icon{color:#ffffff;font-size:14px}.kpi-value{font-size:25px;font-weight:680;letter-spacing:-.055em;margin:12px 0 5px;white-space:nowrap}.kpi-foot{display:flex;gap:8px;align-items:center;color:#858c92;font-size:9px;flex-wrap:wrap}.kpi-positive{color:#ffffff}.kpi-spark{position:absolute;right:13px;bottom:15px;width:34%;height:35px;opacity:.8}.kpi-spark svg{width:100%;height:100%;overflow:visible}.kpi-spark path{fill:none;stroke:#ffffff;stroke-width:2}.kpi-suffix{font-size:12px;color:#899098}.risk-low{color:#ffffff}.mini-risk{height:3px;background:#292d2d;border-radius:5px;margin-top:10px}.mini-risk span{display:block;width:31%;height:100%;background:#ffffff;border-radius:5px}.home-primary-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(265px,.8fr);gap:12px}.home-equity-card,.home-core-card,.home-portfolio-card,.home-signals-card,.home-activity-card{padding:17px 18px}.home-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.home-section-label{font-size:8px;letter-spacing:.18em;color:#838b91;font-weight:700}.home-card-title{font-size:15px;font-weight:650;letter-spacing:-.025em;margin-top:4px}.home-feed-label{font-size:8px;border:1px solid #34382b;border-radius:20px;padding:6px 8px;color:#adb4a0}.equity-summary{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:17px}.equity-total{font-size:31px;line-height:1;font-weight:700;letter-spacing:-.06em}.equity-change{font-size:10px;color:#ffffff;margin-top:8px}.equity-change span{color:#858d91;margin-left:4px}.equity-periods{display:flex;gap:3px;padding:3px;background:#0b0d0e;border:1px solid #25292b;border-radius:9px}.equity-periods button{border:0;background:transparent;color:#858d93;padding:6px 8px;border-radius:6px;font-size:9px}.equity-periods button.active{background:#ffffff;color:#10120b;font-weight:800}.equity-chart-wrap{position:relative;margin-top:13px;padding-left:37px}.equity-chart{display:block;width:100%;height:176px;overflow:visible}.equity-gridline{fill:none;stroke:#2a2d2e;stroke-width:1;stroke-dasharray:3 6}.equity-area{fill:url(#equityFill)}.equity-line{fill:none;stroke:#ffffff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px #ffffff33)}.equity-crosshair{stroke:#8b9b48;stroke-width:1;stroke-dasharray:3 4;opacity:.6}.equity-point{fill:#ffffff;stroke:#111;stroke-width:3}.equity-y-labels{position:absolute;left:0;top:2px;bottom:24px;display:flex;flex-direction:column;justify-content:space-between;color:#697177;font-size:8px}.equity-x-labels{display:flex;justify-content:space-between;color:#697177;font-size:8px;margin-top:5px}.equity-chart-foot{display:flex;justify-content:space-between;gap:10px;color:#71797f;font-size:8px;border-top:1px solid #25292b;padding-top:11px;margin-top:12px}.equity-chart-foot b{color:#ffffff}.home-core-card{display:flex;flex-direction:column;min-width:0}.core-state{color:#ffffff;border:1px solid #3a4328;padding:6px 8px;border-radius:20px;font-size:8px}.core-orbit{height:174px;position:relative;display:grid;place-items:center;margin:2px 0 5px;overflow:hidden}.orbit{position:absolute;border:1px solid #343a2c;border-radius:50%;transform:rotate(-18deg)}.orbit-a{width:148px;height:92px}.orbit-b{width:202px;height:130px;transform:rotate(38deg);border-color:#292e29}.orbit-core{width:61px;height:61px;border-radius:18px;background:linear-gradient(145deg,#e8ff6a,#b8d42e);color:#10120a;box-shadow:0 0 40px #e8ff6a33;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:21px;box-shadow:0 0 35px #ffffff22;z-index:1}.orbit-core span{font-size:7px;letter-spacing:.16em}.orbit-node{position:absolute;width:23px;height:23px;border-radius:8px;background:#1c2118;border:1px solid #535e37;color:#ffffff;display:grid;place-items:center;font-size:9px;font-weight:800;z-index:2}.node-a{top:22px;left:calc(50% - 84px)}.node-b{top:30px;right:calc(50% - 84px)}.node-c{bottom:18px;left:calc(50% - 92px)}.node-d{bottom:20px;right:calc(50% - 92px)}.core-status-row{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px solid #25292b;color:#858d92;font-size:9px}.core-status-row b{color:#e2e6e8;font-weight:600}.home-outline-btn{width:100%;display:flex;justify-content:space-between;align-items:center;margin-top:12px;background:#191d17;border-color:#424a30;color:#e6f0d2}.home-outline-btn span{color:#ffffff}.home-core-note{font-size:8px;color:#747d80;line-height:1.5;margin-top:9px}.home-secondary-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:12px}.portfolio-total-row{display:flex;justify-content:space-between;align-items:center;margin:15px 0 12px}.portfolio-total{font-size:22px;font-weight:700;letter-spacing:-.04em}.allocation-bar{height:7px;display:flex;overflow:hidden;border-radius:10px;background:#292d30;gap:2px}.allocation-bar span{display:block;height:100%}.alloc-stable{width:60%;background:#a78bfa}.alloc-major{width:26%;background:#fbbf24}.alloc-alt{width:14%;background:#f472b6}.allocation-legend{display:grid;gap:7px;margin:13px 0 14px}.allocation-legend div{display:flex;align-items:center;gap:7px;font-size:9px;color:#92999e}.allocation-legend i{width:7px;height:7px;border-radius:2px}.allocation-legend b{margin-left:auto;color:#dce0e2;font-size:9px}.legend-stable{background:#a78bfa}.legend-major{background:#fbbf24}.legend-alt{background:#f472b6}.portfolio-positions{border-top:1px solid #292d30}.portfolio-position{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid #24282a}.asset-avatar,.signal-coin{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;flex:none;background:#202429;font-size:13px}.asset-avatar.btc,.signal-coin.btc{color:#f3bd54}.asset-avatar.eth,.signal-coin.eth{color:#9aaeff}.asset-avatar.sol,.signal-coin.sol{color:#c7a4ff}.portfolio-asset-name{min-width:0;flex:1}.portfolio-asset-name b,.portfolio-asset-value b{display:block;font-size:10px}.portfolio-asset-name small,.portfolio-asset-value small{display:block;color:#858d92;font-size:8px;margin-top:3px}.portfolio-asset-value{text-align:right;white-space:nowrap}.home-card-footnote{font-size:8px;color:#697177;margin-top:9px}.text-link{border:0;background:transparent;color:#ffffff;font-size:9px;padding:4px 0;white-space:nowrap}.signal-item{padding:13px 0;border-bottom:1px solid #25292b}.signal-item:last-of-type{border-bottom:0}.signal-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.signal-asset{display:flex;align-items:center;gap:8px;min-width:0}.signal-asset b{display:block;font-size:10px}.signal-asset small{display:block;color:#727b81;font-size:7px;letter-spacing:.06em;margin-top:3px}.signal-bias{font-size:7px;letter-spacing:.08em;padding:5px 6px;border-radius:5px;white-space:nowrap}.bias-long{color:#ffffff;background:#252d18}.bias-neutral{color:#b8c2d0;background:#222832}.bias-risk{color:#f0bc73;background:#302518}.signal-bottom{display:flex;justify-content:space-between;gap:8px;margin-top:9px;color:#8c9499;font-size:8px}.signal-bottom b{color:#e4e8e9;font-size:9px}.signal-bottom b span{color:#778087;font-size:7px}.signal-meter{height:3px;background:#292e2f;border-radius:5px;margin-top:7px}.signal-meter span{display:block;height:100%;border-radius:5px;background:#a78bfa}.signal-meter.caution span{background:#e4ad64}.home-activity-card{min-width:0}.home-event-list{margin-top:13px}.home-event{display:flex;align-items:flex-start;gap:8px;padding:11px 0;border-bottom:1px solid #25292b}.event-mark{width:25px;height:25px;border-radius:8px;display:grid;place-items:center;font-size:9px;font-weight:800;flex:none}.mark-core{background:#2a301c;color:#ffffff}.mark-scout{background:#1c2b25;color:#ffffff}.mark-risk{background:#30251b;color:#e4ad64}.home-event>div{min-width:0;flex:1}.home-event b{display:block;font-size:9px;line-height:1.4}.home-event small{display:block;color:#778087;font-size:8px;line-height:1.4;margin-top:3px}.home-event time{font-size:7px;color:#79827f;white-space:nowrap}.home-event-empty{font-size:8px;line-height:1.5;color:#737c80;margin-top:11px}.home-bottom-row{margin-top:21px}.home-bottom-title{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px}.home-disclaimer{font-size:8px;color:#687177;border-top:1px solid #25292b;margin-top:18px;padding-top:12px;line-height:1.5}
+@media(max-width:1050px){.home-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.home-primary-grid{grid-template-columns:minmax(0,1.4fr) minmax(250px,.8fr)}.home-secondary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-activity-card{grid-column:1/-1}}
+@media(max-width:760px){.home-hero{align-items:flex-start;margin-bottom:13px}.home-hero h1{font-size:21px}.home-hero .sub{max-width:260px;font-size:10px}.home-hero-actions{flex-direction:column;align-items:flex-end;gap:7px}.home-demo-tag{font-size:7px;padding:6px 7px}.home-hero-actions .btn{font-size:9px;padding:8px 9px;white-space:nowrap}.home-kpis{gap:7px;margin-bottom:8px}.home-kpi{min-height:91px;padding:11px 12px;border-radius:12px}.kpi-label{font-size:8px}.kpi-value{font-size:20px;margin:9px 0 4px}.kpi-foot{font-size:8px;gap:5px}.kpi-spark{width:28%;height:24px;right:9px;bottom:11px}.home-primary-grid{grid-template-columns:1fr;gap:8px}.home-equity-card,.home-core-card,.home-portfolio-card,.home-signals-card,.home-activity-card{padding:13px;border-radius:13px}.home-card-title{font-size:13px}.home-section-label{font-size:7px}.equity-summary{margin-top:13px;align-items:flex-start;flex-direction:column;gap:11px}.equity-total{font-size:26px}.equity-periods{width:100%;justify-content:space-between}.equity-periods button{flex:1;padding:7px 4px}.equity-chart-wrap{padding-left:31px;margin-top:9px}.equity-chart{height:137px}.equity-chart-foot{font-size:7px}.core-orbit{height:145px}.home-secondary-grid{grid-template-columns:1fr;gap:8px;margin-top:8px}.home-activity-card{grid-column:auto}.portfolio-total{font-size:20px}.portfolio-positions .portfolio-position{padding:9px 0}.home-bottom-row{margin-top:17px}.home-bottom-title .home-card-title{font-size:13px}.home-disclaimer{font-size:7px;margin-top:13px}.home-bottom-row .agent-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;padding-bottom:8px}.home-bottom-row .agent{min-width:145px;scroll-snap-align:start}}
+@media(max-width:380px){.home-hero h1{font-size:19px}.home-hero .sub{font-size:9px}.home-hero-actions .btn{font-size:8px}.home-kpi{padding:10px}.kpi-value{font-size:18px}.home-demo-tag{letter-spacing:.06em}.equity-total{font-size:24px}}
+
+
+/* KYNEX HOME — CLEAN INTERFACE PASS v5 */
+#page-home{color:#f4f5f6}
+#page-home .home-hero{align-items:center;margin:0 0 18px;gap:12px}
+#page-home .home-hero h1{font-size:clamp(20px,2.2vw,27px);font-weight:650;letter-spacing:-.045em;margin:5px 0 3px}
+#page-home .home-hero .sub{font-size:10px;color:#858b90}
+#page-home .eyebrow,#page-home .home-section-label{letter-spacing:.11em;color:#777f83}
+#page-home .home-demo-tag{border:0;background:#141716;padding:6px 9px;color:#9ca5a0}
+#page-home .home-hero-actions .btn{border-radius:9px;padding:9px 12px}
+#page-home .home-kpis{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:transparent;border:0;border-bottom:1px solid #242728;border-radius:0;margin:0 0 14px;padding-bottom:12px}
+#page-home .home-kpi{background:transparent;border:0;border-radius:0;min-height:0;padding:8px 13px 8px 0;box-shadow:none}
+#page-home .home-kpi:not(:first-child){padding-left:13px;border-left:1px solid #242728}
+#page-home .home-kpi-main{background:transparent;border-color:transparent}
+#page-home .kpi-label{font-size:9px;color:#858d91}
+#page-home .kpi-icon,#page-home .kpi-spark{display:none}
+#page-home .kpi-value{font-size:clamp(17px,2vw,23px);font-weight:650;margin:8px 0 4px;letter-spacing:-.04em}
+#page-home .kpi-foot{font-size:8px;color:#82898d}
+#page-home .home-primary-grid{grid-template-columns:minmax(0,1.75fr) minmax(245px,.75fr);gap:18px}
+#page-home .home-equity-card,#page-home .home-core-card,#page-home .home-portfolio-card,#page-home .home-signals-card,#page-home .home-activity-card{background:transparent;border:0;border-radius:0;box-shadow:none;padding:12px 0}
+#page-home .home-equity-card{border-bottom:1px solid #242728;padding-top:7px;padding-bottom:15px}
+#page-home .home-card-head{align-items:center}
+#page-home .home-card-title{font-size:14px;font-weight:600;color:#f0f2f2}
+#page-home .home-feed-label{border:0;background:transparent;color:#78827d;padding:0}
+#page-home .equity-summary{margin-top:12px;align-items:flex-end}
+#page-home .equity-total{font-size:clamp(29px,4vw,42px);font-weight:650;letter-spacing:-.06em}
+#page-home .equity-change{font-size:11px;color:#ffffff;margin-top:7px}
+#page-home .equity-periods{background:transparent;border:0;border-radius:0;padding:0;gap:7px}
+#page-home .equity-periods button{font-size:10px;color:#858d91;padding:6px 10px;border-radius:18px}
+#page-home .equity-periods button.active{background:#ffffff;color:#07150e}
+#page-home .equity-chart-wrap{padding:0;margin-top:11px}
+#page-home .equity-y-labels,#page-home .equity-x-labels{display:none}
+#page-home .equity-chart{height:clamp(125px,17vw,190px)}
+#page-home .equity-gridline{opacity:0}
+#page-home .equity-area{fill:url(#equityFill)}
+#page-home .equity-line{stroke:#ffffff;stroke-width:2.6;filter:none}
+#page-home .equity-point{fill:#ffffff;stroke:#06140d;stroke-width:2}
+#page-home .equity-crosshair{display:none}
+#page-home .equity-chart-foot{border:0;padding:0;margin-top:8px;font-size:8px;color:#68716d}
+#page-home .equity-chart-foot b{color:#ffffff}
+#page-home .home-core-card{padding:12px 0 12px 15px;border-left:1px solid #242728}
+#page-home .core-orbit{height:116px;margin:4px 0}
+#page-home .orbit-a{width:120px;height:72px}
+#page-home .orbit-b{width:160px;height:102px}
+#page-home .orbit-core{width:49px;height:49px;border-radius:50%;background:#1b3026;color:#ffffff;border:1px solid #246c49;box-shadow:none;font-size:17px}
+#page-home .orbit-node{width:19px;height:19px;border-radius:50%;background:#101d17;border-color:#28573d;color:#ffffff;font-size:8px}
+#page-home .core-state{border:0;background:#10251a;color:#ffffff}
+#page-home .core-status-row{font-size:9px;padding:7px 0}
+#page-home .home-outline-btn{background:transparent;border:1px solid #303936;border-radius:8px;margin-top:9px;padding:9px 10px}
+#page-home .home-core-note{font-size:8px}
+#page-home .home-secondary-grid{grid-template-columns:1.1fr 1fr 1fr;gap:18px;margin-top:9px}
+#page-home .home-secondary-grid>.card{border-top:1px solid #242728;padding-top:13px}
+#page-home .portfolio-total-row{margin:11px 0 10px}
+#page-home .portfolio-total{font-size:20px}
+#page-home .allocation-bar{height:5px;background:#202624;gap:1px}
+#page-home .alloc-stable{background:#a78bfa}
+#page-home .alloc-major{background:#829a8c}
+#page-home .alloc-alt{background:#48544e}
+#page-home .allocation-legend{gap:6px;margin:10px 0}
+#page-home .allocation-legend div{font-size:8px}
+#page-home .portfolio-position{padding:8px 0;border-color:#202624}
+#page-home .asset-avatar,#page-home .signal-coin{width:25px;height:25px;border-radius:50%;background:#171c1a}
+#page-home .portfolio-asset-name b,#page-home .portfolio-asset-value b,#page-home .signal-asset b{font-size:9px}
+#page-home .portfolio-asset-name small,#page-home .portfolio-asset-value small{font-size:7px}
+#page-home .signal-item{padding:10px 0;border-color:#202624}
+#page-home .signal-bias{border-radius:20px;padding:4px 7px;font-size:7px}
+#page-home .bias-long{background:#10281c;color:#ffffff}
+#page-home .bias-neutral{background:#171d20;color:#aab6b0}
+#page-home .bias-risk{background:#2b2115;color:#e3b66f}
+#page-home .signal-bottom{font-size:7px;margin-top:7px}
+#page-home .signal-meter{height:2px;background:#242b27}
+#page-home .signal-meter span{background:#a78bfa}
+#page-home .signal-meter.caution span{background:#d8a45d}
+#page-home .home-event{padding:9px 0;border-color:#202624}
+#page-home .event-mark{width:23px;height:23px;border-radius:50%;background:#15251c;color:#ffffff}
+#page-home .mark-risk{background:#292116;color:#d9aa65}
+#page-home .home-event b{font-size:8px}
+#page-home .home-event small{font-size:7px}
+#page-home .home-bottom-row{border-top:1px solid #242728;padding-top:13px;margin-top:15px}
+#page-home .home-bottom-row .agent{background:#141816;border:1px solid #242c27;border-radius:11px;box-shadow:none}
+#page-home .home-disclaimer{border-color:#202624;color:#626b66}
+@media(max-width:760px){
+ #page-home .home-hero{margin-bottom:12px}
+ #page-home .home-hero h1{font-size:20px}
+ #page-home .home-hero .sub{font-size:9px;max-width:210px}
+ #page-home .home-hero-actions{gap:5px}
+ #page-home .home-hero-actions .btn{font-size:8px;padding:7px 8px}
+ #page-home .home-kpis{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:8px;padding-bottom:10px}
+ #page-home .home-kpi{padding:7px 8px 7px 0}
+ #page-home .home-kpi:nth-child(3){padding-left:0;border-left:0}
+ #page-home .home-kpi:nth-child(2n){padding-left:10px;border-left:1px solid #242728}
+ #page-home .home-kpi:nth-child(n+3){border-top:1px solid #202624;padding-top:10px}
+ #page-home .kpi-value{font-size:19px;margin:6px 0 3px}
+ #page-home .home-primary-grid{grid-template-columns:1fr;gap:0}
+ #page-home .home-equity-card{padding:9px 0 13px}
+ #page-home .home-card-title{font-size:13px}
+ #page-home .equity-summary{flex-direction:row;align-items:flex-end;gap:8px;margin-top:10px}
+ #page-home .equity-total{font-size:31px}
+ #page-home .equity-change{font-size:9px}
+ #page-home .equity-periods{width:auto;gap:2px}
+ #page-home .equity-periods button{flex:initial;padding:6px 8px;font-size:9px}
+ #page-home .equity-chart{height:142px}
+ #page-home .home-core-card{border-left:0;border-top:1px solid #242728;padding:12px 0}
+ #page-home .core-orbit{height:105px}
+ #page-home .home-secondary-grid{grid-template-columns:1fr;gap:0;margin-top:0}
+ #page-home .home-secondary-grid>.card{padding:12px 0;border-top:1px solid #242728}
+ #page-home .home-activity-card{grid-column:auto}
+ #page-home .home-bottom-row{margin-top:12px}
+ #page-home .home-bottom-row .agent{min-width:142px}
+}
+@media(max-width:380px){
+ #page-home .home-hero h1{font-size:18px}
+ #page-home .home-demo-tag{font-size:6px}
+ #page-home .home-hero-actions .btn{font-size:7px}
+ #page-home .equity-total{font-size:28px}
+ #page-home .equity-periods button{padding:5px 6px}
+}
+
+
+/* ===== KYNEX V6 · упрощённый визуал: один акцент, плоские карточки, меньше шума ===== */
+:root{--bg:#070808;--panel:#0f1011;--line:#1b1d1f;--muted:#80868c;--accent:#ffffff;--green:#ffffff;--red:#ff5c6c;--radius:22px;color-scheme:dark}
+body{background:var(--bg);font:15px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Inter,sans-serif;letter-spacing:0;-webkit-font-smoothing:antialiased}
+/* убираем «технический» шум */
+.eyebrow,.nav-label,.home-section-label,.home-feed-label,.home-card-footnote,.home-core-note,.equity-chart-foot,.kpi-icon,.kpi-spark,.core-orbit,.mini-risk,.home-hero,.sidebar .connection,.brand small,.demo,.equity-y-labels,.equity-crosshair,.equity-point,.engine-note,.card-title .pill,.page-head .pill{display:none!important}
+.page-head .sub,.sub{font-size:13px;color:var(--muted)}
+*{text-transform:none!important}
+.table th,.pill,.status,.signal-bias{letter-spacing:0!important}
+/* карточки */
+.card,.lab-panel,.hq,.task-console,.balance-card{background:var(--panel)!important;border:1px solid var(--line)!important;border-radius:var(--radius)!important;box-shadow:none!important;padding:20px}
+.card:hover{border-color:#26292b}
+.balance-card:after{display:none}
+.card-title,.home-card-title{font-size:15px;font-weight:600;color:#e9ecee}
+.metric,.kpi-value{font-weight:700;letter-spacing:-.03em}
+/* кнопки */
+.btn{border-radius:14px;padding:11px 16px;font-size:13px;background:#141617;border:1px solid var(--line);color:#e9ecee}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#03150b;font-weight:700;box-shadow:none}
+.tab,.equity-periods button{border-radius:999px;font-size:12px;padding:8px 14px}
+.tab.active{background:#1a1d1f;border-color:#1a1d1f;color:#fff}
+.equity-periods button.active{background:var(--accent);color:#03150b;font-weight:700}
+.pill{background:#141617;border:0;color:#a2a8ad;font-size:11px;padding:5px 10px}
+.pill.good{background:#0e2418;color:#a8b0b8}
+.pill.warn{background:#241d0e;color:#f2c56b}
+.pill.bad{background:#26110f;color:#ff8b8b}
+.positive,.kpi-positive{color:#a8b0b8}.negative{color:var(--red)}
+/* шапка и навигация */
+.topbar{background:#070808e6;border-bottom:0;height:60px}
+@media(min-width:761px){.crumb{display:none}}
+.crumb{font-size:0}.crumb:before{content:"KYNEX";font-size:16px;font-weight:700;letter-spacing:.14em;color:#fff}
+.top-actions{margin-left:auto}
+.icon-btn{border:0;background:#121415;border-radius:50%}
+.page-head h1{font-size:30px;font-weight:700;letter-spacing:-.04em;margin:0 0 4px}
+.sidebar{background:var(--bg);border-right:1px solid var(--line);padding:26px 14px}
+.logo{background:var(--accent);color:#03150b;border:0;border-radius:11px}
+.brand{padding-bottom:34px}.brand strong{letter-spacing:.14em;font-size:16px}
+.nav button{font-size:14px;border-radius:14px;padding:13px 14px;color:#8d9399}
+.nav button.active,.nav button:hover{background:#121415;color:#fff}
+.nav button.active:before{display:none}
+.nav button.active .ico{color:var(--accent)}
+.mobile-nav{background:#070808f2;border-top:1px solid var(--line)}
+.mobile-nav button{font-size:10px}
+.mobile-nav button.active{color:var(--accent)}
+/* ГЛАВНАЯ: сначала капитал и график, потом остальное */
+#page-home{display:none;flex-direction:column;gap:14px}
+#page-home.active{display:flex}
+#page-home>*{margin:0!important}
+#page-home .home-primary-grid{display:contents}
+#page-home .home-equity-card{order:1}
+#page-home .home-core-card{order:3}
+#page-home .risk-low{color:#a8b0b8}
+#page-home .home-kpis{order:2;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;border:0;padding:0;background:none}
+#page-home .home-secondary-grid{order:3}
+#page-home .home-bottom-row{order:4}
+#page-home .home-disclaimer{order:5}
+#page-home .home-kpi-main{display:none}
+#page-home .home-kpi{background:var(--panel);border:1px solid var(--line)!important;border-radius:18px;padding:14px!important}
+#page-home .kpi-label{font-size:12px;color:var(--muted)}
+#page-home .kpi-value{font-size:20px;margin:8px 0 2px}
+#page-home .kpi-foot{font-size:11px;color:var(--muted)}
+#page-home .kpi-foot span+span{display:none}
+#page-home .home-equity-card{background:none!important;border:0!important;padding:6px 0 0!important}
+#page-home .home-card-head{margin-bottom:0}
+#page-home .home-equity-card .home-card-head{display:none}
+#page-home .equity-summary{display:block;margin-top:4px}
+#page-home .equity-total{font-size:52px;font-weight:700;letter-spacing:-.05em;line-height:1.05}
+#page-home .equity-change{margin-top:8px;font-size:15px;font-weight:600;color:#a8b0b8}
+#page-home .equity-change span{color:var(--muted);font-weight:400;font-size:13px}
+#page-home .equity-periods{margin-top:18px;display:flex;gap:4px;background:none}
+#page-home .equity-chart-wrap{margin-top:10px;padding:0}
+#page-home .equity-chart{height:190px;width:100%}
+#page-home .equity-gridline{stroke:#16181a}
+#page-home .equity-line{stroke:var(--green);stroke-width:2.5;filter:none}
+#page-home .equity-x-labels{color:#5d6368;font-size:11px}
+#page-home .home-core-card{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+#page-home .home-core-card .home-card-head{flex:1 1 auto;display:block}
+#page-home .core-state{background:none;color:#a8b0b8;font-size:13px;padding:0;margin-left:auto}
+#page-home .core-status-row{display:none}
+#page-home .home-core-card .btn{flex:1 1 100%;background:var(--accent);color:#03150b;border:0;font-weight:700;margin:0}
+#page-home .home-secondary-grid{display:grid;grid-template-columns:1fr;gap:14px}
+#page-home .home-card-head .text-link{color:#a8b0b8;font-size:13px}
+#page-home .portfolio-total-row,#page-home .allocation-bar,#page-home .allocation-legend{display:none}
+#page-home .portfolio-position{padding:12px 0;border-bottom:1px solid var(--line)}
+#page-home .portfolio-position:last-child{border:0}
+#page-home .signal-item{padding:12px 0;border-bottom:1px solid var(--line)}
+#page-home .signal-item:last-child{border:0}
+#page-home .signal-meter{height:4px;background:#1a1c1e}
+#page-home .signal-meter span{background:var(--accent)}
+#page-home .signal-bias{background:none;border:0;font-size:11px;padding:0;color:#a8b0b8}
+#page-home .signal-bias.bias-neutral{color:#a2a8ad}
+#page-home .signal-bias.bias-risk{color:#f2c56b}
+#page-home .home-activity-card{display:none}
+#page-home .home-secondary-grid>.card{padding:18px!important;border:1px solid var(--line)!important}
+#page-home .home-core-card{padding:18px!important;text-align:left}
+#page-home .home-core-card .home-card-head{text-align:left}
+#page-home .home-outline-btn{background:#141617}
+.text-link,#page-home .home-bottom-title a,.home-bottom-row a{color:#a8b0b8!important}
+.agent p{font-size:12px;margin:4px 0 10px}.agent .tinytext{color:#a8b0b8}
+.agent-top .status{font-size:11px}
+.disclaimer,.home-disclaimer{font-size:11px;color:#565c61;text-align:center;margin-top:12px}
+/* прочие страницы */
+.lab-panel .card,.lab-panel .chat{border:0!important;background:transparent!important;padding:0!important}
+.lab-panel{padding:18px}
+.table-wrap{border:0;background:var(--panel);border-radius:var(--radius)}
+.table th{background:none;color:var(--muted);font-size:12px;font-weight:500;border:0}
+.table td{border-top:1px solid var(--line);font-size:13px}
+.coin,.asset-avatar,.signal-coin,.agent-symbol{background:#17191b;border:0}
+.agent{background:var(--panel)!important}
+.chart-svg .line{stroke:var(--green);filter:none}
+.bubble{border:0;background:#141617;border-radius:18px;font-size:13px}.bubble.user{background:#0e2418;border:0}
+.search,.chat-compose input,textarea{background:#0d0f10;border:1px solid var(--line);border-radius:14px}
+.toast{background:var(--accent);color:#03150b}
+.toggle.on{background:var(--accent)}
+.risk-bar span,.risk-meter span{background:var(--accent)}
+.setting b{font-size:14px}.setting p{font-size:12px}
+.activity-row b,.card p{font-size:13px}
+@media(min-width:761px){
+ .content{max-width:1100px;padding:30px 34px 80px}
+ #page-home .home-primary-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.8fr);align-items:start}
+ #page-home .home-secondary-grid{grid-template-columns:1fr 1fr}
+ #page-home .equity-chart{height:260px}
+ #page-home .equity-total{font-size:64px}
+}
+@media(max-width:760px){
+ .content{padding:6px 18px 30px}
+ .page-head h1{font-size:28px}
+ .card{padding:16px}
+ #page-home .equity-total{font-size:46px}
+ #page-home .home-kpi{padding:12px!important}
+ #page-home .kpi-value{font-size:17px}
+ #page-home .home-bottom-row .agent{min-width:150px}
+}
+
+/* ===== V7: чёрно-белая палитра, мягкие формы, цвет только у агентов ===== */
+:root{--accent:#fff;--green:#f4f4f5;--radius:30px;--line:#161718}
+.card,.lab-panel,.hq,.task-console,.balance-card{background:#0e0e0f!important;border:1px solid #151617!important;border-radius:30px!important;padding:24px}
+.btn{border-radius:999px;padding:12px 20px;background:#151617;border:0}
+.btn.primary,#page-home .home-core-card .btn{background:#fff!important;color:#000!important;border:0!important;font-weight:700}
+.tab,.equity-periods button{border-radius:999px}
+.tab.active,.equity-periods button.active{background:#fff;color:#000;border-color:#fff}
+.logo{background:#fff;color:#000}
+.nav button{border-radius:999px}
+.nav button.active .ico,.mobile-nav button.active,.status,.core-state,.text-link,.home-bottom-row a{color:#fff!important}
+.mobile-nav{border-radius:28px 28px 0 0;border:0;background:#0b0b0cf2}
+.pill,.pill.good{background:#151617;color:#d8d8da;border:0}
+.pill.warn{background:#2a2410;color:#ffd166}.pill.bad{background:#2c1214;color:#ff7a85}
+.toast{background:#fff;color:#000}.toggle.on{background:#fff}.toggle.on:after{background:#000}
+/* графики: проще и мягче */
+.chart-svg .gridline,.equity-gridline,.equity-x-labels{display:none!important}
+.chart-svg .line,#page-home .equity-line{stroke:#fff!important;stroke-width:2.4!important;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;filter:none!important}
+.chart-svg .area,.equity-area{opacity:.9}
+#page-home .equity-chart{height:210px}
+#page-home .equity-chart-wrap{margin-top:14px}
+#page-home .equity-total{font-size:56px}
+#page-home .equity-change{color:#a9a9ad}
+#page-home .equity-change span{color:#6d6d72}
+/* главная: без сигналов, больше воздуха */
+#page-home{gap:16px}
+#page-home .home-signals-card{display:none}
+#page-home .home-secondary-grid{grid-template-columns:1fr}
+#page-home .home-kpi{background:#0e0e0f;border:1px solid #151617!important;border-radius:24px}
+#page-home .signal-meter span,.risk-bar span,.risk-meter span,.task-progress span,.signal-meter span{background:#fff}
+#page-home .kpi-positive,#page-home .kpi-value.positive,.risk-low{color:#fff}
+.mark-core{background:#1b1b1c;color:#fff}.mark-scout{background:#201a33;color:#b69cff}.mark-risk{background:#2e1517;color:#ff7a85}
+/* цвет агента */
+.agent{border-radius:28px!important;padding:18px!important}
+.agent-symbol{border-radius:50%!important;width:40px;height:40px;color:var(--c,#fff);background:color-mix(in srgb,var(--c,#fff) 16%,#0e0e0f)!important}
+.agent .status{color:var(--c,#fff)!important}
+.agent .tinytext{color:var(--c,#fff)}
+.task-item,.log-item,.bubble{border-radius:22px!important;border:0!important;background:#141415!important}
+.bubble.user{background:#fff!important;color:#000}.bubble.user small{color:#555}
+.node.core circle{fill:#fff;stroke:#fff}.node.active circle,.node .pulse{stroke:#fff}
+.network line{/* stroke from SVG */}
+.setting{border-color:#161718}
+
+.chart-svg .area{opacity:.35!important}.equity-area{opacity:.4!important}
+/* filter kept for icon glow */
+
+/* ── Premium nav icons & subtle accent colors (v6.1) ── */
+.nav-ico, .ico .nav-ico {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+}
+.nav .ico {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  color: inherit;
+}
+.nav .ico .nav-ico {
+  width: 18px;
+  height: 18px;
+}
+.mobile-nav button {
+  position: relative;
+  color: #7a828a;
+  transition: color .22s ease, transform .18s ease;
+}
+.mobile-nav button .nav-ico-wrap {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 32px;
+  border-radius: 16px;
+  transition: background .22s ease, box-shadow .22s ease;
+}
+.mobile-nav button .nav-ico {
+  width: 20px;
+  height: 20px;
+}
+.mobile-nav button.active {
+  color: #ffffff !important;
+}
+.mobile-nav button.active .nav-ico-wrap {
+  background: rgba(255,255,255,0.09);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.mobile-nav button:not(.active):hover .nav-ico-wrap {
+  background: rgba(255,255,255,0.04);
+}
+.mobile-nav button.active .nav-ico {
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.35));
+}
+
+/* Subtle color accents on secondary icons (agents, activity, status) — not main screens */
+.agent-symbol {
+  position: relative;
+  overflow: hidden;
+}
+.agent-symbol::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--c, #fff) 35%, transparent), transparent 70%);
+  pointer-events: none;
+}
+.agent .status {
+  color: var(--c, #9aa2ad) !important;
+  font-weight: 650;
+}
+.agent.selected .agent-symbol,
+.agent:hover .agent-symbol {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--c, #fff) 40%, transparent), 0 6px 18px rgba(0,0,0,0.35);
+}
+.activity-icon {
+  color: #c5ccd4;
+}
+.live-indicator:before,
+.live-dot,
+.dot {
+  background: #e8ff6a !important;
+  box-shadow: 0 0 10px #e8ff6a88 !important;
+}
+.pill.good {
+  color: #d4f07a !important;
+  border-color: #3a4a22 !important;
+  background: #141a0f !important;
+}
+.pill.warn {
+  color: #ffd17d !important;
+  border-color: #5b4927 !important;
+  background: #201b11 !important;
+}
+.status:before {
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+/* Logo emblem refinement */
+.logo {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  width: 34px !important;
+  height: 34px !important;
+  display: block !important;
+}
+.logo svg {
+  display: block;
+  filter: drop-shadow(0 0 10px #e8ff6a22);
+}
+/* Network nodes subtle accent on hover/active */
+.node.active circle,
+.node:hover circle {
+  stroke: #e8ff6a !important;
+  filter: drop-shadow(0 0 8px #e8ff6a70) !important;
+}
+.node.core circle {
+  fill: #e8ff6a !important;
+  stroke: #e8ff6a !important;
+}
+.node.core text {
+  fill: #111 !important;
+}
+
+
+/* ── Soft accent palette from reference screenshots ── */
+:root{
+  --c-stable: #a78bfa;
+  --c-btceth: #fbbf24;
+  --c-other:  #f472b6;
+  --c-btc:    #f59e0b;
+  --c-eth:    #8b5cf6;
+  --c-sol:    #14b8a6;
+  --c-xrp:    #38bdf8;
+  --c-scout:  #c4b5fd;
+  --c-tech:   #60a5fa;
+  --c-news:   #fbbf24;
+  --c-sent:   #f472b6;
+  --c-onchain:#e2e8f0;
+  --c-deriv:  #fb923c;
+  --c-strat:  #c084fc;
+  --c-quant:  #22d3ee;
+  --c-port:   #e2e8f0;
+  --c-risk:   #f87171;
+  --c-monitor:#94a3b8;
+  --c-learn:  #fde047;
+  --c-exec:   #e2e8f0;
+}
+
+/* Portfolio allocation bar — soft pastel segments */
+.allocation-bar{
+  height: 8px !important;
+  border-radius: 99px !important;
+  background: #1a1c1e !important;
+  gap: 3px !important;
+  overflow: hidden;
+}
+.allocation-bar span{ border-radius: 99px; }
+.alloc-stable{ background: var(--c-stable) !important; width: 60% !important; }
+.alloc-major { background: var(--c-btceth) !important; width: 26% !important; }
+.alloc-alt   { background: var(--c-other)  !important; width: 14% !important; }
+
+.legend-stable{ background: var(--c-stable) !important; }
+.legend-major { background: var(--c-btceth) !important; }
+.legend-alt   { background: var(--c-other)  !important; }
+
+/* Asset avatars — colored circles like reference */
+.asset-avatar, .signal-coin, .position-coin, .coin{
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  flex: none !important;
+  border: none !important;
+}
+.asset-avatar.btc, .signal-coin.btc, .coin.btc, .position-coin.btc{
+  background: #2a2110 !important; color: #fbbf24 !important;
+  box-shadow: 0 0 0 1px #fbbf2433;
+}
+.asset-avatar.eth, .signal-coin.eth, .coin.eth, .position-coin.eth{
+  background: #1e1535 !important; color: #a78bfa !important;
+  box-shadow: 0 0 0 1px #a78bfa33;
+}
+.asset-avatar.sol, .signal-coin.sol, .coin.sol, .position-coin.sol{
+  background: #0f2a28 !important; color: #2dd4bf !important;
+  box-shadow: 0 0 0 1px #2dd4bf33;
+}
+.asset-avatar.xrp, .signal-coin.xrp, .coin.xrp, .position-coin.xrp{
+  background: #0f2433 !important; color: #38bdf8 !important;
+  box-shadow: 0 0 0 1px #38bdf833;
+}
+
+/* Agent cards — soft colored glow matching reference */
+.agent{
+  background: linear-gradient(160deg, #141617 0%, #0e0f10 100%) !important;
+  border: 1px solid #25282b !important;
+  border-radius: 18px !important;
+  transition: border-color .25s, box-shadow .25s, transform .2s !important;
+  position: relative;
+  overflow: hidden;
+}
+.agent::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 20% 15%, color-mix(in srgb, var(--c,#fff) 14%, transparent), transparent 55%);
+  pointer-events: none;
+  opacity: .9;
+}
+.agent:hover, .agent.selected{
+  border-color: color-mix(in srgb, var(--c,#fff) 45%, #25282b) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--c,#fff) 18%, transparent),
+              0 12px 32px rgba(0,0,0,.4),
+              0 0 24px color-mix(in srgb, var(--c,#fff) 12%, transparent) !important;
+  transform: translateY(-2px);
+}
+.agent-symbol{
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: color-mix(in srgb, var(--c,#fff) 12%, #111) !important;
+  border: 1px solid color-mix(in srgb, var(--c,#fff) 35%, transparent) !important;
+  color: var(--c,#fff) !important;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--c,#fff) 25%, transparent) !important;
+  font-size: 15px !important;
+}
+.agent .status{
+  color: var(--c,#9aa2ad) !important;
+  font-weight: 600 !important;
+}
+.agent .status:before{
+  background: var(--c,#9aa2ad) !important;
+  box-shadow: 0 0 6px var(--c,#9aa2ad) !important;
+}
+.agent b{ color: #f1f3f5 !important; }
+.agent p{ color: #8b929a !important; }
+.agent .tinytext, .agent a, .agent .text-link{
+  color: var(--c,#c4c9ce) !important;
+  font-weight: 550 !important;
+}
+
+/* Network nodes — soft filled circles with color */
+.network .node circle{
+  fill: #1a1c1e !important;
+  stroke-width: 1.6 !important;
+}
+.network .node.core circle{
+  fill: #f8fafc !important;
+  stroke: #f8fafc !important;
+  filter: drop-shadow(0 0 18px rgba(255,255,255,.35)) !important;
+}
+.network .node.core text{ fill: #0f1112 !important; font-weight: 800 !important; }
+.network .node[data-agent="SCOUT"] circle        { fill: #2a2340 !important; stroke: #c4b5fd !important; }
+.network .node[data-agent="TECH ANALYST"] circle { fill: #152033 !important; stroke: #60a5fa !important; }
+.network .node[data-agent="NEWS"] circle         { fill: #2a2410 !important; stroke: #fbbf24 !important; }
+.network .node[data-agent="SENTIMENT"] circle    { fill: #2a1525 !important; stroke: #f472b6 !important; }
+.network .node[data-agent="RISK"] circle         { fill: #2a1518 !important; stroke: #f87171 !important; }
+.network .node[data-agent="STRATEGY"] circle     { fill: #241530 !important; stroke: #c084fc !important; }
+.network .node[data-agent="QUANT"] circle        { fill: #0f2430 !important; stroke: #22d3ee !important; }
+.network .node[data-agent="PORTFOLIO"] circle    { fill: #1e2226 !important; stroke: #e2e8f0 !important; }
+.network .node text{ fill: #e8eaed !important; font-size: 8.5px !important; font-weight: 650 !important; }
+.network .node.core text{ fill: #0f1112 !important; }
+
+/* Colored dashed edges matching node colors */
+.network line{ opacity: .55 !important; stroke-dasharray: 4 6 !important; }
+
+/* Donut chart colors in account page */
+.balance-card + .card svg circle[stroke="#ffffff"],
+.balance-card + .card svg circle[stroke="#8da5c9"]{
+  /* will be overridden by inline if needed */
+}
+
+/* Positive / negative PnL */
+.positive, .kpi-positive, .delta, .equity-change{ color: #a8b0b8 !important; }
+.negative{ color: #f87171 !important; }
+
+/* Soften live dots to soft white / soft accent */
+.live-dot, .dot, .live-indicator:before{
+  background: #e2e8f0 !important;
+  box-shadow: 0 0 10px #e2e8f066 !important;
+}
+
+/* Equity period pills */
+.equity-periods button.active{
+  background: #f8fafc !important;
+  color: #0f1112 !important;
+  font-weight: 750 !important;
+}
+
+
+/* ── Neutral positive PnL (no green) — match screenshots ── */
+.positive,
+.kpi-positive,
+.delta,
+.equity-change,
+.portfolio-asset-value small.positive,
+.position-value small,
+.home-event small {
+  color: #a8b0b8 !important;
+}
+.negative {
+  color: #f87171 !important;
+}
+/* Equity change specifically muted */
+#homeEquityChange,
+.equity-change {
+  color: #9ca3af !important;
+}
+.equity-change span {
+  color: #6b7280 !important;
+}
+
+
+/* Stronger soft glow on agent cards — match reference */
+.agent {
+  border-color: color-mix(in srgb, var(--c, #fff) 22%, #25282b) !important;
+}
+.agent::before {
+  background: radial-gradient(ellipse at 25% 10%, color-mix(in srgb, var(--c,#fff) 18%, transparent), transparent 60%) !important;
+}
+.agent:hover, .agent.selected {
+  border-color: color-mix(in srgb, var(--c,#fff) 55%, #25282b) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--c,#fff) 25%, transparent),
+    0 14px 36px rgba(0,0,0,.45),
+    0 0 28px color-mix(in srgb, var(--c,#fff) 16%, transparent) !important;
+}
+.agent-symbol {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--c,#fff) 40%, transparent),
+    0 0 18px color-mix(in srgb, var(--c,#fff) 30%, transparent) !important;
+}
+/* Status text color inherits agent color */
+.agent .status {
+  color: var(--c, #9aa2ad) !important;
+  opacity: 0.95;
+}
+
+
+/* Allocation bar final polish */
+.allocation-bar {
+  height: 7px !important;
+  border-radius: 99px !important;
+  background: transparent !important;
+  gap: 3px !important;
+  display: flex !important;
+  overflow: visible !important;
+}
+.allocation-bar span {
+  border-radius: 99px !important;
+  height: 100% !important;
+}
+.alloc-stable { width: 60% !important; background: #a78bfa !important; }
+.alloc-major  { width: 26% !important; background: #fbbf24 !important; }
+.alloc-alt    { width: 14% !important; background: #f472b6 !important; }
+
+/* Legend dots perfect circles */
+.allocation-legend i {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  flex: none !important;
+}
+
+
+/* ── 1. CORE button — clean full-width white pill ── */
+.home-outline-btn,
+.btn.core-cta {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 14px !important;
+  padding: 14px 18px !important;
+  min-height: 48px !important;
+  border-radius: 14px !important;
+  background: #f8fafc !important;
+  border: none !important;
+  color: #0f1112 !important;
+  font-weight: 650 !important;
+  font-size: 13px !important;
+  letter-spacing: -0.01em !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25) !important;
+  transition: transform .18s, box-shadow .18s !important;
+}
+.home-outline-btn:hover,
+.btn.core-cta:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,.35) !important;
+  background: #ffffff !important;
+}
+.home-outline-btn span { color: inherit !important; }
+
+/* CORE status READY — clean white dot + text */
+.core-state {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  color: #e8eaed !important;
+  font-size: 10px !important;
+  letter-spacing: .12em !important;
+  font-weight: 650 !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+.core-state i,
+.core-state::before {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #f8fafc !important;
+  box-shadow: 0 0 10px rgba(255,255,255,.55) !important;
+  display: inline-block !important;
+  content: "" !important;
+}
+
+/* ── 2. Animated dashed lines toward CORE ── */
+.network line {
+  stroke-dasharray: 5 7 !important;
+  animation: flowToCore 2.8s linear infinite !important;
+  opacity: .5 !important;
+}
+@keyframes flowToCore {
+  to { stroke-dashoffset: -48; }
+}
+
+/* ── 3. Beautiful Ready / Standby pills ── */
+.activity-row .pill,
+.activity .pill {
+  min-width: 72px !important;
+  text-align: center !important;
+  padding: 7px 12px !important;
+  border-radius: 20px !important;
+  font-size: 10px !important;
+  font-weight: 650 !important;
+  letter-spacing: .02em !important;
+  border: none !important;
+}
+.activity-row .pill.good,
+.activity .pill.good {
+  background: #1a2418 !important;
+  color: #c8e6a0 !important;
+  box-shadow: inset 0 0 0 1px #2a3a22 !important;
+}
+.activity-row .pill:not(.good):not(.warn):not(.bad),
+.activity .pill:not(.good):not(.warn):not(.bad) {
+  background: #1c1e20 !important;
+  color: #9ca3af !important;
+  box-shadow: inset 0 0 0 1px #2a2e32 !important;
+}
+
+/* Agent card status — clean */
+.agent .status {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .02em !important;
+}
+
+/* ── 4. Remove square boxes under inputs/buttons ── */
+.chat-compose,
+.task-entry {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.chat-compose input,
+.task-entry input,
+#chatInput,
+#hqTaskInput {
+  background: #141618 !important;
+  border: 1px solid #2a2e32 !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.chat-compose .btn.primary,
+.task-entry .btn.primary {
+  border-radius: 14px !important;
+  background: #f8fafc !important;
+  border: none !important;
+  color: #0f1112 !important;
+  font-weight: 650 !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,.2) !important;
+  min-height: 44px !important;
+  padding: 0 18px !important;
+}
+.chat-compose .btn.primary:hover,
+.task-entry .btn.primary:hover {
+  background: #ffffff !important;
+}
+
+/* Activity rows — cleaner cards */
+.activity-row {
+  background: #121416 !important;
+  border: 1px solid #25282b !important;
+  border-radius: 14px !important;
+  padding: 12px 14px !important;
+  margin-bottom: 8px !important;
+  border-bottom: none !important;
+}
+.activity-row:last-child { margin-bottom: 0 !important; }
+.activity-icon {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: #1c1f22 !important;
+  border: 1px solid #2a2e32 !important;
+  color: #c5ccd4 !important;
+}
+
+
+/* Clean chat + task entry layout — no square boxes */
+.chat-compose {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: center !important;
+  padding-top: 12px !important;
+  border-top: 1px solid #25282b !important;
+  background: transparent !important;
+}
+.chat-compose input {
+  flex: 1 !important;
+  min-width: 0 !important;
+  height: 44px !important;
+  padding: 0 16px !important;
+  font-size: 13px !important;
+}
+.task-entry {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: center !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.task-entry input {
+  flex: 1 !important;
+  min-width: 0 !important;
+  height: 46px !important;
+  padding: 0 16px !important;
+  font-size: 13px !important;
+}
+.task-entry .btn {
+  flex: none !important;
+  white-space: nowrap !important;
+}
+
+/* CORE card button stretch */
+.home-core-card .home-outline-btn {
+  width: 100% !important;
+  margin-top: 16px !important;
+}
+
+/* Network animation stronger */
+.network line {
+  stroke-dasharray: 4 6 !important;
+  animation: flowToCore 2.4s linear infinite !important;
+}
+@keyframes flowToCore {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -40; }
+}
+/* Stagger animation slightly per line for organic feel */
+.network line:nth-child(1) { animation-delay: 0s; }
+.network line:nth-child(2) { animation-delay: -0.3s; }
+.network line:nth-child(3) { animation-delay: -0.6s; }
+.network line:nth-child(4) { animation-delay: -0.9s; }
+.network line:nth-child(5) { animation-delay: -1.2s; }
+.network line:nth-child(6) { animation-delay: -1.5s; }
+.network line:nth-child(7) { animation-delay: -1.8s; }
+.network line:nth-child(8) { animation-delay: -2.1s; }
+
+/* Ready pill soft green text on dark green bg — match screenshot */
+.pill.good {
+  background: #152018 !important;
+  color: #c5e09a !important;
+  border: none !important;
+  box-shadow: inset 0 0 0 1px #243028 !important;
+}
+
+
+.activity {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+.activity-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+.activity-row > div:nth-child(2) {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+.activity-row .pill {
+  flex: none !important;
+  margin-left: auto !important;
+}
+
+/* Remove any residual square backgrounds on compose areas */
+.chat,
+.task-console {
+  overflow: visible !important;
+}
+.chat-compose input:focus,
+.task-entry input:focus,
+#chatInput:focus,
+#hqTaskInput:focus {
+  border-color: #3a4048 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+/* Home CORE card polish */
+.home-core-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.home-core-card .home-card-title {
+  font-size: 15px !important;
+  font-weight: 650 !important;
+}
+.home-core-card .core-state {
+  margin-left: auto !important;
+}
+.home-core-card .home-outline-btn {
+  margin-top: auto !important;
+  width: 100% !important;
+}
+
+/* Ensure primary buttons in chat/HQ are white pills, not green-tinted */
+.btn.primary {
+  background: #f8fafc !important;
+  border-color: #f8fafc !important;
+  color: #0f1112 !important;
+  box-shadow: 0 2px 14px rgba(0,0,0,.22) !important;
+}
+.btn.primary:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+
+/* ═══ FORCE network edge animation — highest priority ═══ */
+@keyframes netFlow {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -44; }
+}
+.network line.net-edge,
+.network line,
+#edges line {
+  stroke-dasharray: 5 6 !important;
+  animation: netFlow 2.2s linear infinite !important;
+  animation-duration: 2.2s !important;
+  animation-iteration-count: infinite !important;
+  animation-timing-function: linear !important;
+}
+/* Protect network animation from reduced-motion blanket */
+@media (prefers-reduced-motion: reduce) {
+  .network line.net-edge,
+  .network line,
+  #edges line {
+    animation: netFlow 2.2s linear infinite !important;
+    animation-duration: 2.2s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar"><div class="brand"><div class="logo" aria-label="KYNEX">
+<svg viewBox="0 0 34 34" width="34" height="34" style="display:block">
+  <defs>
+    <linearGradient id="lgK" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8ff6a"/>
+      <stop offset="100%" stop-color="#a8c43a"/>
+    </linearGradient>
+  </defs>
+  <rect x="1.5" y="1.5" width="31" height="31" rx="9" fill="url(#lgK)" fill-opacity="0.12" stroke="#6b7a3a" stroke-width="1.2"/>
+  <text x="17" y="23" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="800" font-size="15" fill="#e8ff6a" letter-spacing="-1">K</text>
+</svg>
+</div><div><strong>KYNEX</strong><small>INTELLIGENCE SYSTEM</small></div></div><div class="nav-label">WORKSPACE</div><nav class="nav" id="sideNav">
+<button class="active" data-page="home"><span class="ico"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="4.5" width="15" height="15" rx="3.2"/><path d="M9.2 8.5v7M14.8 8.5v7"/></svg></span>Главная</button>
+<button data-page="market"><span class="ico"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L4 13.5h7.2L9.8 21 20 10.5h-7.2L13 3z"/></svg></span>Маркет</button>
+<button data-page="account"><span class="ico"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="6.5"/></svg></span>Счёт</button>
+<button data-page="agents"><span class="ico"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3.2 19.5 7.5v9L12 20.8 4.5 16.5v-9L12 3.2z"/></svg></span>AI-агенты</button>
+<button data-page="lab"><span class="ico"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="2.2"/><circle cx="16" cy="8" r="2.2"/><circle cx="8" cy="16" r="2.2"/><circle cx="16" cy="16" r="2.2"/><path d="M10 8h4M8 10v4M16 10v4M10 16h4"/></svg></span>AI Lab</button>
+</nav><div class="side-bottom"><div class="connection"><div><span class="dot"></span><b style="font-size:11px">Система активна</b></div><small>DEMO ENVIRONMENT · API OFFLINE</small></div><div class="user"><div class="avatar">U</div><div><b style="font-size:11px">Workspace</b><small>Personal account</small></div></div></div></aside>
+<main class="main"><header class="topbar"><div class="crumb">KYNEX <span style="color:#505862">/</span> <b id="crumb">Главная</b></div><div class="top-actions"><span class="demo">Demo</span><button class="icon-btn" title="Уведомления" onclick="toast('Уведомлений нет')">♧</button><button class="icon-btn" title="Настройки" onclick="go('account')">⚙</button></div></header>
+<div class="content">
+<section class="page active" id="page-home">
+<div class="home-hero"><div><div class="eyebrow">KYNEX / COMMAND CENTER</div><h1>Добро пожаловать в KYNEX</h1><div class="sub">Ваш капитал, рыночные возможности и интеллект системы — на одном экране.</div></div><div class="home-hero-actions"><span class="home-demo-tag"><i></i> DEMO ENVIRONMENT</span><button class="btn primary" onclick="go('lab')">Поставить задачу CORE <span>↗</span></button></div></div>
+<div class="home-kpis">
+ <div class="home-kpi home-kpi-main"><div class="kpi-label">Совокупный капитал <span class="kpi-icon">◉</span></div><div class="kpi-value">$24,850.60</div><div class="kpi-foot"><span class="kpi-positive">↗ $1,143.20</span><span>за 30 дней · +4.82%</span></div><div class="kpi-spark"><svg viewBox="0 0 160 42" preserveAspectRatio="none"><path d="M0 33 C18 31 20 19 38 24 S62 10 78 18 S101 8 116 14 S139 3 160 5"/></svg></div></div>
+ <div class="home-kpi"><div class="kpi-label">PnL за 24 часа <span class="kpi-icon">↗</span></div><div class="kpi-value positive">+$384.20</div><div class="kpi-foot"><span class="kpi-positive">+1.57%</span><span>от капитала</span></div></div>
+ <div class="home-kpi"><div class="kpi-label">Свободные средства <span class="kpi-icon">◫</span></div><div class="kpi-value">$18,420</div><div class="kpi-foot"><span>74.1%</span><span>капитала</span></div></div>
+ <div class="home-kpi"><div class="kpi-label">Риск-профиль <span class="kpi-icon">⛨</span></div><div class="kpi-value">31<span class="kpi-suffix">/100</span></div><div class="kpi-foot"><span class="risk-low">Умеренный</span><span>демо-оценка</span></div><div class="mini-risk"><span></span></div></div>
+</div>
+<div class="home-primary-grid">
+ <div class="card home-equity-card"><div class="home-card-head"><div><div class="home-section-label">EQUITY PERFORMANCE</div><div class="home-card-title">Динамика капитала</div></div><span class="home-feed-label"><i></i> SAMPLE DATA</span></div>
+  <div class="equity-summary"><div><div class="equity-total" id="homeEquityValue">$24,850.60</div><div class="equity-change" id="homeEquityChange">↗ +4.82% <span>за выбранный период</span></div></div><div class="equity-periods" id="equityPeriods"><button class="active" data-range="1D" onclick="setHomeRange('1D',this)">1Д</button><button data-range="1W" onclick="setHomeRange('1W',this)">1Н</button><button data-range="1M" onclick="setHomeRange('1M',this)">1М</button><button data-range="1Y" onclick="setHomeRange('1Y',this)">1Г</button><button data-range="ALL" onclick="setHomeRange('ALL',this)">ВСЁ</button></div></div>
+  <div class="equity-chart-wrap"><div class="equity-y-labels"><span>$25.0k</span><span>$24.5k</span><span>$24.0k</span><span>$23.5k</span></div><svg class="equity-chart" id="homeEquityChart" viewBox="0 0 760 220" preserveAspectRatio="none" role="img" aria-label="Демонстрационный график изменения капитала"><defs><linearGradient id="equityFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".18"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient></defs><path class="equity-gridline" d="M0 22H760 M0 78H760 M0 134H760 M0 190H760"/><path id="equityArea" class="equity-area" d="M0 166 C35 158 48 142 82 151 S130 124 164 132 S210 96 244 115 S290 84 326 99 S372 72 408 84 S454 109 490 82 S536 64 572 72 S620 38 654 48 S710 20 760 27 V220H0Z"/><path id="equityLine" class="equity-line" d="M0 166 C35 158 48 142 82 151 S130 124 164 132 S210 96 244 115 S290 84 326 99 S372 72 408 84 S454 109 490 82 S536 64 572 72 S620 38 654 48 S710 20 760 27"/><line id="equityCrosshair" class="equity-crosshair" x1="620" y1="15" x2="620" y2="190"/><circle id="equityPoint" class="equity-point" cx="620" cy="48" r="4"/></svg><div class="equity-x-labels"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>СЕЙЧАС</span></div></div><div class="equity-chart-foot"><span>Изменение стоимости портфеля с учётом открытых позиций</span><span>USD <b>·</b> DEMO</span></div>
+ </div>
+ <div class="card home-core-card"><div class="home-card-head"><div><div class="home-section-label">INTELLIGENCE STATUS</div><div class="home-card-title">Активность CORE</div></div><span class="core-state"><i></i> READY</span></div><div class="core-orbit"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit-core">K<span>CORE</span></div><div class="orbit-node node-a">S</div><div class="orbit-node node-b">T</div><div class="orbit-node node-c">R</div><div class="orbit-node node-d">N</div></div><div class="core-status-row"><span>Локальный движок</span><b>Ожидает задачи</b></div><div class="core-status-row"><span>Активные процессы</span><b id="homeCoreRunning">0</b></div><div class="core-status-row"><span>Задачи в очереди</span><b id="homeCoreQueued">0</b></div><button class="btn home-outline-btn" onclick="go('lab')">Поставить задачу CORE</button><div class="home-core-note">Реальные LLM и внешние источники пока не подключены.</div></div>
+</div>
+<div class="home-secondary-grid">
+ <div class="card home-portfolio-card"><div class="home-card-head"><div><div class="home-section-label">ASSET ALLOCATION</div><div class="home-card-title">Портфель</div></div><button class="text-link" onclick="go('account')">Подробнее ↗</button></div><div class="portfolio-total-row"><div><div class="portfolio-total">$24,850.60</div><div class="tinytext">Общая стоимость активов</div></div><span class="pill">4 позиции</span></div><div class="allocation-bar"><span class="alloc-stable"></span><span class="alloc-major"></span><span class="alloc-alt"></span></div><div class="allocation-legend"><div><i class="legend-stable"></i><span>Stablecoins</span><b>60%</b></div><div><i class="legend-major"></i><span>BTC / ETH</span><b>26%</b></div><div><i class="legend-alt"></i><span>Other</span><b>14%</b></div></div><div class="portfolio-positions"><div class="portfolio-position"><div class="asset-avatar btc">₿</div><div class="portfolio-asset-name"><b>Bitcoin</b><small>BTC · Spot</small></div><div class="portfolio-asset-value"><b>$5,660.40</b><small class="positive">+$124.80 · +2.25%</small></div></div><div class="portfolio-position"><div class="asset-avatar eth">Ξ</div><div class="portfolio-asset-name"><b>Ethereum</b><small>ETH · Spot</small></div><div class="portfolio-asset-value"><b>$4,999.00</b><small class="positive">+$82.10 · +1.67%</small></div></div><div class="portfolio-position"><div class="asset-avatar sol">◎</div><div class="portfolio-asset-name"><b>Solana</b><small>SOL · Futures 2×</small></div><div class="portfolio-asset-value"><b>$1,250.00</b><small class="negative">−$18.40 · −1.45%</small></div></div></div><div class="home-card-footnote">Позиции и распределение — демонстрационные значения.</div></div>
+ <div class="card home-signals-card"><div class="home-card-head"><div><div class="home-section-label">AI OPPORTUNITIES</div><div class="home-card-title">Сигналы и сценарии</div></div><span class="pill">DEMO</span></div><div class="signal-item"><div class="signal-top"><div class="signal-asset"><span class="signal-coin btc">₿</span><div><b>BTC / USDT</b><small>SCOUT + TECH ANALYST</small></div></div><span class="signal-bias bias-long">LONG WATCH</span></div><div class="signal-bottom"><span>Импульс объёма · подтверждение ожидается</span><b>72<span>/100</span></b></div><div class="signal-meter"><span style="width:72%"></span></div></div><div class="signal-item"><div class="signal-top"><div class="signal-asset"><span class="signal-coin eth">Ξ</span><div><b>ETH / USDT</b><small>STRATEGY + QUANT</small></div></div><span class="signal-bias bias-neutral">NEUTRAL</span></div><div class="signal-bottom"><span>Ожидание выхода из диапазона</span><b>64<span>/100</span></b></div><div class="signal-meter"><span style="width:64%"></span></div></div><div class="signal-item"><div class="signal-top"><div class="signal-asset"><span class="signal-coin sol">◎</span><div><b>SOL / USDT</b><small>RISK REVIEW</small></div></div><span class="signal-bias bias-risk">CAUTION</span></div><div class="signal-bottom"><span>Повышенная волатильность</span><b>41<span>/100</span></b></div><div class="signal-meter caution"><span style="width:41%"></span></div></div><button class="btn home-outline-btn" onclick="go('market')">Все рыночные идеи <span>↗</span></button><div class="home-core-note">Оценки условные, не являются вероятностью прибыли или рекомендацией.</div></div>
+ <div class="card home-activity-card"><div class="home-card-head"><div><div class="home-section-label">SYSTEM EVENT STREAM</div><div class="home-card-title">Последняя активность</div></div><button class="text-link" onclick="go('agents')">Журнал ↗</button></div><div class="home-event-list" id="homeEventList"><div class="home-event"><span class="event-mark mark-core">K</span><div><b>CORE готов к обработке</b><small>Локальный оркестратор · ожидает задачу</small></div><time>READY</time></div><div class="home-event"><span class="event-mark mark-scout">S</span><div><b>SCOUT · пример рыночного наблюдения</b><small>Демонстрационное событие, не live-данные</small></div><time>DEMO</time></div><div class="home-event"><span class="event-mark mark-risk">R</span><div><b>RISK · контрольный контур активен</b><small>Risk Gate блокирует непроверенное исполнение</small></div><time>GUARD</time></div></div><div class="home-event-empty" id="homeEventEmpty">После отправки задач реальные события локального движка появятся здесь.</div></div>
+</div>
+<div class="home-bottom-row"><div class="home-bottom-title"><div><div class="home-section-label">CORE TEAM</div><div class="home-card-title">Команда KYNEX</div></div><button class="text-link" onclick="go('agents')">Все 13 агентов ↗</button></div><div class="grid agent-grid" id="homeAgents"></div></div>
+<div class="home-disclaimer">DEMO ENVIRONMENT · Показатели капитала, котировки, позиции и сигналы являются демонстрационными. CORE использует локальные rule-based адаптеры. Биржевые API, внешние AI-модели и реальные торговые операции не подключены.</div>
+</section>
+<section class="page" id="page-market"><div class="page-head"><div><div class="eyebrow">MARKET INTELLIGENCE / 02</div><h1>Рынок</h1><div class="sub">Аналитика цифровых активов и рыночных возможностей.</div></div><div class="actions"><button class="btn" onclick="toast('Список обновлён в демо-режиме')">↻ Обновить</button><button class="btn primary" onclick="go('lab')">Анализ через AI</button></div></div><div class="grid stats"><div class="card"><div class="card-title">Market cap</div><div class="metric">$2.48T</div><div class="delta">+2.14% <span class="muted">24h</span></div></div><div class="card"><div class="card-title">Объём 24h</div><div class="metric">$86.2B</div><div class="tinytext">Все отслеживаемые рынки</div></div><div class="card"><div class="card-title">BTC dominance</div><div class="metric">54.8%</div><div class="tinytext">Доля Bitcoin в капитализации</div></div><div class="card"><div class="card-title">Fear & Greed</div><div class="metric">68 <span style="font-size:12px;color:#a8b0b8">Greed</span></div><div class="tinytext">Условный демонстрационный индекс</div></div></div><div class="grid market-layout"><div class="card market-chart"><div class="card-title">BTC / USDT <span class="pill">SPOT · DEMO</span></div><div class="chart-value">$67,420.80 <span class="positive" style="font-size:12px">+2.31%</span></div><div class="tinytext">Bitcoin · 1H · Sample market feed</div><svg class="chart-svg" viewBox="0 0 700 230" preserveAspectRatio="none"><path class="gridline" d="M0 30H700 M0 80H700 M0 130H700 M0 180H700 M0 220H700"/><path class="area" d="M0 165 C5.8 164.5 23.3 164.0 35 162.2 C46.7 160.4 58.3 156.2 70 154.333 C81.7 152.4 93.3 153.5 105 150.857 C116.7 148.3 128.3 142.1 140 138.714 C151.7 135.4 163.3 134.3 175 130.714 C186.7 127.1 198.3 120.4 210 117.143 C221.7 113.9 233.3 114.1 245 111.143 C256.7 108.2 268.3 102.1 280 99.5714 C291.7 97.0 303.3 98.0 315 95.7143 C326.7 93.4 338.3 87.9 350 85.7143 C361.7 83.6 373.3 84.9 385 82.8571 C396.7 80.8 408.3 75.4 420 73.2857 C431.7 71.1 443.3 72.0 455 70 C466.7 68.0 478.3 63.1 490 61.1429 C501.7 59.1 513.3 60.1 525 58 C536.7 55.9 548.3 50.9 560 48.5714 C571.7 46.3 583.3 45.9 595 44.2857 C606.7 42.7 618.3 40.1 630 39.1667 C641.7 38.2 653.3 39.5 665 38.6 C676.7 37.7 694.2 34.8 700 34 V230H0Z"/><path class="line" d="M0 165 C5.8 164.5 23.3 164.0 35 162.2 C46.7 160.4 58.3 156.2 70 154.333 C81.7 152.4 93.3 153.5 105 150.857 C116.7 148.3 128.3 142.1 140 138.714 C151.7 135.4 163.3 134.3 175 130.714 C186.7 127.1 198.3 120.4 210 117.143 C221.7 113.9 233.3 114.1 245 111.143 C256.7 108.2 268.3 102.1 280 99.5714 C291.7 97.0 303.3 98.0 315 95.7143 C326.7 93.4 338.3 87.9 350 85.7143 C361.7 83.6 373.3 84.9 385 82.8571 C396.7 80.8 408.3 75.4 420 73.2857 C431.7 71.1 443.3 72.0 455 70 C466.7 68.0 478.3 63.1 490 61.1429 C501.7 59.1 513.3 60.1 525 58 C536.7 55.9 548.3 50.9 560 48.5714 C571.7 46.3 583.3 45.9 595 44.2857 C606.7 42.7 618.3 40.1 630 39.1667 C641.7 38.2 653.3 39.5 665 38.6 C676.7 37.7 694.2 34.8 700 34"/></svg><div class="tabs"><button class="tab active" onclick="range(this,'1H')">1H</button><button class="tab" onclick="range(this,'4H')">4H</button><button class="tab" onclick="range(this,'1D')">1D</button><button class="tab" onclick="range(this,'1W')">1W</button></div></div><div class="card"><div class="card-title">AI Market Brief <span class="pill good">CORE</span></div><h3 style="font-size:15px;margin:18px 0 7px">Рынок сохраняет умеренно позитивный импульс</h3><p class="sub" style="line-height:1.7">Демонстрационный обзор: BTC удерживает краткосрочную структуру, объём растёт. Для подтверждения сценария требуется оценить ликвидность и волатильность на старших таймфреймах.</p><div class="setting"><div><b>Тренд</b><p>Краткосрочный</p></div><span class="pill good">Bullish</span></div><div class="setting"><div><b>Волатильность</b><p>Средняя</p></div><span class="pill">Normal</span></div><div class="setting"><div><b>Уверенность модели</b><p>Не является вероятностью прибыли</p></div><b>72/100</b></div><button class="btn primary" style="width:100%;margin-top:13px" onclick="go('lab')">Открыть полный AI-анализ</button></div></div><div class="section-title">Отслеживаемые активы <input class="search" style="max-width:210px" placeholder="Поиск актива…" oninput="filterAssets(this.value)"></div><div class="table-wrap"><table class="table" id="assetTable"><thead><tr><th>Актив</th><th>Цена</th><th>24h</th><th>Объём</th><th>AI view</th><th></th></tr></thead><tbody><tr><td><div class="asset"><div class="coin btc">₿</div><div><b>Bitcoin</b><div class="tinytext">BTC / USDT</div></div></div></td><td>$67,420.80</td><td class="positive">+2.31%</td><td>$28.4B</td><td><span class="pill good">Positive</span></td><td><button class="btn tiny" onclick="toast('BTC добавлен в watchlist (демо)')">☆</button></td></tr><tr><td><div class="asset"><div class="coin eth">Ξ</div><div><b>Ethereum</b><div class="tinytext">ETH / USDT</div></div></div></td><td>$3,520.40</td><td class="positive">+1.84%</td><td>$12.8B</td><td><span class="pill good">Positive</span></td><td><button class="btn tiny" onclick="toast('ETH добавлен в watchlist (демо)')">☆</button></td></tr><tr><td><div class="asset"><div class="coin sol">◎</div><div><b>Solana</b><div class="tinytext">SOL / USDT</div></div></div></td><td>$148.22</td><td class="negative">−0.72%</td><td>$3.1B</td><td><span class="pill warn">Neutral</span></td><td><button class="btn tiny" onclick="toast('SOL добавлен в watchlist (демо)')">☆</button></td></tr><tr><td><div class="asset"><div class="coin xrp">✕</div><div><b>Ripple</b><div class="tinytext">XRP / USDT</div></div></div></td><td>$0.624</td><td class="positive">+0.46%</td><td>$1.9B</td><td><span class="pill">Mixed</span></td><td><button class="btn tiny" onclick="toast('XRP добавлен в watchlist (демо)')">☆</button></td></tr></tbody></table></div></section>
+<section class="page" id="page-account"><div class="page-head"><div><div class="eyebrow">CAPITAL MANAGEMENT / 03</div><h1>Счёт</h1><div class="sub">Капитал, биржевые подключения и история операций.</div></div><div class="actions"><button class="btn" onclick="toast('Подключение биржи доступно только в реальной версии')">＋ Подключить биржу</button><button class="btn primary" onclick="toast('В демо-режиме переводы отключены')">Перевод</button></div></div><div class="grid account-grid"><div class="card balance-card"><div class="card-title">Совокупный баланс <span class="pill">DEMO</span></div><div class="metric">$24,850.60</div><div class="delta">↗ $1,143.20 за 30 дней</div><div class="balance-meta"><div><small>Свободные средства</small><b>$18,420.00</b></div><div><small>В позициях</small><b>$6,430.60</b></div><div><small>Нереализованный PnL</small><b class="positive">+$284.10</b></div></div></div><div class="card"><div class="card-title">Структура капитала</div><div style="display:flex;align-items:center;gap:18px;margin-top:20px"><svg viewBox="0 0 120 120" width="112" height="112">
+<circle cx="60" cy="60" r="44" fill="none" stroke="#1e2124" stroke-width="13"/>
+<circle cx="60" cy="60" r="44" fill="none" stroke="#a78bfa" stroke-width="13" stroke-dasharray="165.6 276" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+<circle cx="60" cy="60" r="44" fill="none" stroke="#fbbf24" stroke-width="13" stroke-dasharray="71.8 276" stroke-dashoffset="-165.6" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+<circle cx="60" cy="60" r="44" fill="none" stroke="#f472b6" stroke-width="13" stroke-dasharray="38.6 276" stroke-dashoffset="-237.4" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+</svg><div style="display:grid;gap:12px;font-size:10px"><div><span style="color:#a78bfa">●</span> Stablecoins <b style="float:right">60%</b></div><div><span style="color:#fbbf24">●</span> BTC / ETH <b style="float:right">26%</b></div><div><span style="color:#f472b6">●</span> Other <b style="float:right">14%</b></div></div></div></div></div><div class="section-title">Источники капитала</div><div class="grid two"><div class="card"><div class="card-title">Внешние биржи <span class="pill good">Архитектурно предусмотрено</span></div><div class="setting"><div class="asset"><div class="coin">B</div><div><b>Exchange API</b><p>Подключение через API-ключи с ограниченными правами</p></div></div><span class="pill">Not connected</span></div><div class="tinytext">Ключи должны храниться зашифрованно на сервере. Запрет на вывод средств через API — рекомендуемая настройка безопасности.</div></div><div class="card"><div class="card-title">Внутренний счёт KYNEX <span class="pill">Ledger</span></div><div class="setting"><div><b>Внутренний баланс</b><p>Учёт движения средств через двойную запись</p></div><span class="pill">Demo</span></div><div class="tinytext">В реальной версии необходима сверка ledger, доступных остатков и истории депозитов/выводов.</div></div></div><div class="section-title">Последние операции</div><div class="table-wrap"><table class="table"><thead><tr><th>Операция</th><th>Источник</th><th>Дата</th><th>Сумма</th><th>Статус</th></tr></thead><tbody><tr><td>Spot purchase</td><td>Demo Exchange</td><td>Сегодня, 12:42</td><td>−$420.00</td><td><span class="pill good">Simulated</span></td></tr><tr><td>Profit allocation</td><td>KYNEX Ledger</td><td>Вчера, 18:10</td><td>+$86.40</td><td><span class="pill good">Simulated</span></td></tr><tr><td>Futures close</td><td>Demo Exchange</td><td>Вчера, 14:26</td><td>+$52.10</td><td><span class="pill good">Simulated</span></td></tr></tbody></table></div></section>
+<section class="page" id="page-agents"><div class="page-head"><div><div class="eyebrow">MULTI-AGENT HEADQUARTERS / 04</div><h1>AI-агенты</h1><div class="sub">Единый штаб: агенты работают параллельно, передают выводы CORE и проходят независимый контроль риска.</div></div><div class="actions"><span class="pill" id="hqActiveBadge">0 WORKING</span><span class="pill">13 AGENTS</span></div></div><div class="grid stats"><div class="card"><div class="card-title">KYNEX CORE</div><div class="metric" style="font-size:20px">Standby</div><div class="tinytext"><span class="dot"></span>Ожидает задачу</div></div><div class="card"><div class="card-title">Задачи в работе</div><div class="metric" id="hqRunningStat">0</div><div class="tinytext">Локальные worker-процессы</div></div><div class="card"><div class="card-title">В очереди</div><div class="metric" id="hqQueuedStat">0</div><div class="tinytext">Ожидают свободного worker</div></div><div class="card"><div class="card-title">Risk status</div><div class="metric" style="font-size:20px;color:#a8b0b8">Protected</div><div class="tinytext">Контроль решений включён</div></div></div><div class="grid two"><div class="card hq"><div class="card-title">Agent Network <span class="pill">SELECT NODE</span></div><svg class="network" viewBox="0 0 540 320" id="networkSvg"><g id="edges">
+<line class="net-edge" x1="270" y1="150" x2="90" y2="65" stroke="#c4b5fd" stroke-width="1.4" stroke-opacity="0.7" stroke-dasharray="5 6" style="animation:netFlow 2.2s linear infinite"/>
+<line class="net-edge" x1="270" y1="150" x2="270" y2="42" stroke="#60a5fa" stroke-width="1.4" stroke-opacity="0.7" stroke-dasharray="5 6" style="animation:netFlow 2.2s linear infinite -0.3s"/>
+<line class="net-edge" x1="270" y1="150" x2="450" y2="65" stroke="#fbbf24" stroke-width="1.4" stroke-opacity="0.7" stroke-dasharray="5 6" style="animation:netFlow 2.2s linear infinite -0.6s"/>
+<line class="net-edge" x1="270" y1="150" x2="90" y2="155" stroke="#f472b6" stroke-width="1.4" stroke-opacity="0.7" stroke-dasharray="5 6" style="animation:netFlow 2.2s linear infinite -0.9s"/>
+<line class="net-edge" x1="270" y1="150" x2="450" y2="155" stroke="#f87171" stroke-width="1.4" stroke-opacity="0.7" stroke-dasharray="5 6" style="animation:netFlow 2.2s linear infinite -1.2s"/>
+<line class="net-edge" x1="270" y1="150" x2="90" y2="255" stroke="#c084fc" stroke-width="1.4" stroke-opacity="0.7" stroke-dasharray="5 6" style="animation:netFlow 2.2s linear infinite -1.5s"/>
+<line class="net-edge" x1="270" y1="150" x2="270" y2="270" stroke="#22d3ee" stroke-width="1.4" stroke-opacity="0.7" stroke-dasharray="5 6" style="animation:netFlow 2.2s linear infinite -1.8s"/>
+<line class="net-edge" x1="270" y1="150" x2="450" y2="255" stroke="#94a3b8" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="5 6" style="animation:netFlow 2.2s linear infinite -2.1s"/>
+</g><g class="node core" transform="translate(270 150)"><circle r="35"/><circle class="pulse" r="44"/><text y="-2">KYNEX</text><text y="10">CORE</text></g><g class="node" data-agent="SCOUT" transform="translate(90 65)"><circle r="22"/><text y="4">SCOUT</text></g><g class="node" data-agent="TECH ANALYST" transform="translate(270 42)"><circle r="22"/><text y="4">TECH</text></g><g class="node" data-agent="NEWS" transform="translate(450 65)"><circle r="22"/><text y="4">NEWS</text></g><g class="node" data-agent="SENTIMENT" transform="translate(90 155)"><circle r="22"/><text y="4">SENT</text></g><g class="node" data-agent="RISK" transform="translate(450 155)"><circle r="22"/><text y="4">RISK</text></g><g class="node" data-agent="STRATEGY" transform="translate(90 255)"><circle r="22"/><text y="4">STRAT</text></g><g class="node" data-agent="QUANT" transform="translate(270 270)"><circle r="22"/><text y="4">QUANT</text></g><g class="node" data-agent="PORTFOLIO" transform="translate(450 255)"><circle r="22"/><text y="4">PORT</text></g></svg><div class="live-hq"><span class="live-dot"></span><b style="color:var(--accent)">LOCAL ENGINE</b><span>· события появятся после постановки задачи</span><span id="hqClock" style="margin-left:auto">READY</span></div><div class="hq-feed" id="hqFeed"><div class="hq-event"><span class="event-led"></span><div><b>Штаб готов к работе</b><small>CORE ожидает первую задачу · внешние API отключены</small></div></div></div><div class="tinytext" style="margin-top:10px">Выберите узел на схеме или агента в списке, чтобы открыть профиль. Задачи распределяются локальным движком; внешние ИИ-модели и биржевые источники пока не подключены.</div></div><div class="card agent-detail" id="agentDetail"><div class="card-title">Agent profile <span class="pill good">ACTIVE</span></div><div style="font-size:20px;font-weight:700;margin:18px 0 5px">KYNEX CORE</div><p class="sub">Центральный интеллект. Принимает запросы, декомпозирует задачи, распределяет их между агентами, собирает выводы и инициирует проверки безопасности.</p><div class="setting"><div><b>Режим</b><p>Orchestrator</p></div><span class="pill good">Online</span></div><div class="setting"><div><b>Активные процессы</b><p>Market scan · Risk review · Strategy</p></div></div><button class="btn" style="width:100%;margin-top:12px" onclick="go('lab')">Открыть Commander в AI Lab ↗</button></div></div><div class="section-title">Центр задач <span class="pill" id="engineState">ENGINE READY</span></div><div class="card task-console"><div class="task-entry"><input id="hqTaskInput" class="search" placeholder="Например: оцени BTC, сценарии и основные риски…" maxlength="500"><button class="btn primary" id="enqueueTaskBtn" onclick="enqueueFromHQ()">Поставить задачу ↗</button></div><div class="task-toolbar"><span class="tinytext">Параллельность: <b id="parallelCount">0 / 4</b></span><span class="tinytext">В очереди: <b id="queueCount">0</b></span><button class="btn tiny" onclick="pauseEngine()" id="pauseEngineBtn">Пауза</button></div><div class="grid two task-columns"><div><div class="card-title task-heading">Очередь и выполнение <span class="pill" id="taskCount">0 задач</span></div><div id="taskQueue" class="task-list"><div class="empty-state">Пока нет задач. Отправьте запрос через поле выше или Commander.</div></div></div><div><div class="card-title task-heading">Журнал взаимодействий <span class="pill">LIVE LOG</span></div><div id="interactionLog" class="interaction-log"><div class="empty-state">Здесь появятся назначения, сообщения между агентами, результаты и проверки Risk Manager.</div></div></div></div><div class="engine-note">Локальный рабочий контур: очередь, параллельные worker-процессы, маршрутизация сообщений, сбор результатов и обязательный Risk Gate. Аналитические выводы формируются встроенными правилами на демонстрационных данных. Для настоящих ИИ-ответов и рыночных данных нужен серверный adapter/API.</div></div><div class="section-title">Все агенты</div><div class="grid agent-grid" id="allAgents"></div><div class="disclaimer">Очередь, параллельные локальные worker-процессы, маршрутизация сообщений, сбор результатов и Risk Gate работают в браузере. Содержательные выводы пока rule-based и не используют внешние рыночные данные или подключённые LLM.</div></section>
+<section class="page" id="page-lab"><div class="page-head"><div><div class="eyebrow">RESEARCH & DEVELOPMENT / 05</div><h1>AI Lab</h1><div class="sub">Место, где создаются, проверяются и улучшаются торговые системы.</div></div><span class="pill">CORE CONNECTIVITY · DEMO</span></div><div class="tabs" id="labTabs"><button class="tab active" data-lab="commander">Commander</button><button class="tab" data-lab="strategies">Стратегии</button><button class="tab" data-lab="paper">Paper Trading</button><button class="tab" data-lab="training">Обучение</button><button class="tab" data-lab="settings">Настройки</button></div><div class="lab-panel" id="lab-commander"><div class="grid two"><div class="card chat"><div class="card-title"><span>⌘ KYNEX CORE / COMMANDER</span><span class="pill good">READY · DEMO</span></div><div class="chat-log" id="chatLog"><div class="bubble"><small>KYNEX CORE · SYSTEM</small>Я — центральный координатор KYNEX. Могу разложить рыночную задачу на этапы, назначить аналитические модули и собрать единый отчёт. Сейчас работаю в демонстрационном режиме.</div><div class="bubble"><small>EXAMPLE TASK</small>Проанализируй BTC, оцени рыночный контекст, сценарии и риски. Не исполняй сделки.</div></div><div class="chat-compose"><input id="chatInput" placeholder="Поставьте задачу KYNEX CORE…" onkeydown="if(event.key==='Enter')sendChat()"><button class="btn primary" onclick="sendChat()">Отправить ↗</button></div></div><div class="card"><div class="card-title">Task orchestration <span class="pill">SIMULATED</span></div><div class="activity"><div class="activity-row"><div class="activity-icon">⚡</div><div><b>1. SCOUT</b><p>Сканирует активы и аномалии</p></div><span class="pill good">Ready</span></div><div class="activity-row"><div class="activity-icon">◇</div><div><b>2. ANALYST</b><p>Проверяет структуру и контекст</p></div><span class="pill good">Ready</span></div><div class="activity-row"><div class="activity-icon">#</div><div><b>3. STRATEGY</b><p>Формирует сценарии</p></div><span class="pill">Standby</span></div><div class="activity-row"><div class="activity-icon">🛡</div><div><b>4. RISK</b><p>Проверяет лимиты и экспозицию</p></div><span class="pill good">Ready</span></div></div><div class="section-title">Режим работы</div><div class="setting"><div><b>Observation</b><p>Анализ без исполнения</p></div><button class="toggle on" onclick="this.classList.toggle('on');toast('Режим переключён в демо')"></button></div><div class="setting"><div><b>Approval required</b><p>Подтверждение действий пользователем</p></div><button class="toggle on" onclick="this.classList.toggle('on');toast('Настройка изменена в демо')"></button></div></div></div></div>
+<div class="lab-panel" id="lab-strategies" style="display:none"><div class="grid two"><div class="card"><div class="card-title">Strategy Builder <span class="pill">NO-CODE CONCEPT</span></div><h3 style="font-size:17px">Создать стратегию</h3><p class="sub">Соберите гипотезу и отправьте её на тестирование.</p><div class="setting"><div><b>Название</b><p>Momentum Alpha</p></div><span class="pill">Draft</span></div><div class="setting"><div><b>Рынок</b><p>Spot · BTC/USDT</p></div><span class="pill">Selected</span></div><div class="setting"><div><b>Сигнал входа</b><p>Trend + Volume confirmation</p></div></div><div class="setting"><div><b>Контроль риска</b><p>Max drawdown · Position sizing</p></div></div><button class="btn primary" style="width:100%;margin-top:13px" onclick="toast('Черновик стратегии сохранён локально (демо)')">Сохранить черновик</button></div><div class="card"><div class="card-title">Strategy validation</div><div class="metric">—</div><p class="sub">Перед публикацией стратегия должна пройти backtest, out-of-sample проверку, paper trading и независимую оценку Risk AI.</p><div class="risk-bar"><span style="width:0%"></span></div><div class="tinytext">Validation pipeline not started</div><button class="btn" style="width:100%;margin-top:15px" onclick="toast('Для запуска требуется backend и исторические данные')">Запустить тестирование</button></div></div></div>
+<div class="lab-panel" id="lab-paper" style="display:none"><div class="grid stats"><div class="card"><div class="card-title">Paper balance</div><div class="metric">$10,000.00</div><div class="tinytext">Виртуальный капитал</div></div><div class="card"><div class="card-title">Simulated PnL</div><div class="metric positive">+$128.40</div><div class="tinytext">+1.28% · sample</div></div><div class="card"><div class="card-title">Trades</div><div class="metric">18</div><div class="tinytext">Тестовые сделки</div></div><div class="card"><div class="card-title">Max drawdown</div><div class="metric">−1.6%</div><div class="tinytext">Демонстрационный показатель</div></div></div><div class="card"><div class="card-title">Paper Trading <span class="pill good">SIMULATION</span></div><p class="sub" style="margin:15px 0">Проверка стратегии на виртуальном капитале без доступа к реальным средствам.</p><button class="btn primary" onclick="toast('Paper Trading запущен в демонстрационном режиме')">▶ Запустить симуляцию</button> <button class="btn" onclick="toast('Симуляция остановлена')">Ⅱ Пауза</button></div></div>
+<div class="lab-panel" id="lab-training" style="display:none"><div class="grid two"><div class="card"><div class="card-title">Controlled learning</div><h3 style="font-size:16px">Контролируемое самообучение</h3><p class="sub">Модели могут предлагать улучшения, но не должны самостоятельно менять production-параметры без тестирования, версионирования и одобрения.</p><div class="setting"><div><b>Research experiments</b><p>Разрешить создание гипотез</p></div><button class="toggle on" onclick="this.classList.toggle('on')"></button></div><div class="setting"><div><b>Auto-publish</b><p>Публикация без одобрения запрещена</p></div><button class="toggle" onclick="toast('Автопубликация заблокирована политикой безопасности')"></button></div></div><div class="card"><div class="card-title">Model versions</div><div class="setting"><div><b>Strategy model v1.4</b><p>Current stable</p></div><span class="pill good">Active</span></div><div class="setting"><div><b>Strategy model v1.5-beta</b><p>Out-of-sample validation</p></div><span class="pill warn">Testing</span></div><button class="btn" style="width:100%;margin-top:12px" onclick="toast('Сравнение версий доступно в полной версии')">Сравнить версии</button></div></div></div>
+<div class="lab-panel" id="lab-settings" style="display:none"><div class="grid two"><div class="card"><div class="card-title">Capital & preferences</div><div class="setting"><div><b>Базовый капитал</b><p>Для настройки риск-параметров</p></div><input class="search" style="width:110px" value="$10,000"></div><div class="setting"><div><b>Риск на сделку</b><p>Демо-параметр</p></div><input class="search" style="width:80px" value="0.5%"></div><div class="setting"><div><b>Максимальная просадка</b><p>Лимит остановки стратегии</p></div><input class="search" style="width:80px" value="5%"></div><button class="btn primary" style="width:100%;margin-top:13px" onclick="toast('Параметры сохранены в текущем демо-сеансе')">Сохранить параметры</button></div><div class="card"><div class="card-title">Subscription & capabilities</div><div class="setting"><div><b>Базовые настройки</b><p>Капитал, лимиты и параметры</p></div><span class="pill good">Included</span></div><div class="setting"><div><b>Создание и изменение агентов</b><p>Расширенная лаборатория</p></div><span class="pill warn">Pro plan</span></div><div class="setting"><div><b>Backtesting & versioning</b><p>Проверка и управление моделями</p></div><span class="pill warn">Pro plan</span></div></div></div></div>
+<div class="section-title" style="margin-top:24px">Safety controls</div><div class="grid two"><div class="card"><div class="card-title">Risk Manager <span class="pill good">GUARDRAILS ON</span></div><div class="setting"><div><b>Pre-trade validation</b><p>Проверка каждого ордера до исполнения</p></div><span class="pill good">Enabled</span></div><div class="setting"><div><b>Daily loss limit</b><p>Демонстрационный лимит</p></div><b>2.0%</b></div><div class="setting"><div><b>Position exposure</b><p>Текущая условная экспозиция</p></div><b>31%</b></div></div><div class="card"><div class="card-title">Emergency control <span class="pill bad">DEMO ONLY</span></div><p class="sub">Аварийная остановка в настоящей системе должна блокировать новые ордера и запускать процедуру безопасной обработки открытых позиций.</p><button class="btn danger" style="width:100%;margin-top:12px" onclick="if(confirm('Включить демонстрационный Kill Switch? Реальные операции не затрагиваются.')){this.textContent='KILL SWITCH · DEMO ACTIVE';this.classList.add('primary');toast('Демонстрационный Kill Switch включён')} ">⏻ Activate Kill Switch</button></div></div><div class="disclaimer">Чат, агенты, стратегии и защитные переключатели здесь имитируют интерфейс. Они не подключены к реальному ИИ или биржам.</div></section>
+</div></main></div>
+<nav class="mobile-nav" id="mobileNav">
+<button class="active" data-page="home"><span class="nav-ico-wrap"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="4.5" width="15" height="15" rx="3.2"/><path d="M9.2 8.5v7M14.8 8.5v7"/></svg></span>Главная</button>
+<button data-page="market"><span class="nav-ico-wrap"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L4 13.5h7.2L9.8 21 20 10.5h-7.2L13 3z"/></svg></span>Маркет</button>
+<button data-page="account"><span class="nav-ico-wrap"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="6.5"/></svg></span>Счёт</button>
+<button data-page="agents"><span class="nav-ico-wrap"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3.2 19.5 7.5v9L12 20.8 4.5 16.5v-9L12 3.2z"/></svg></span>Агенты</button>
+<button data-page="lab"><span class="nav-ico-wrap"><svg class="nav-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="2.2"/><circle cx="16" cy="8" r="2.2"/><circle cx="8" cy="16" r="2.2"/><circle cx="16" cy="16" r="2.2"/><path d="M10 8h4M8 10v4M16 10v4M10 16h4"/></svg></span>AI Lab</button>
+</nav><div class="toast" id="toast"></div>
+<script>
+const names={home:'Главная',market:'Маркет',account:'Счёт',agents:'AI-агенты',lab:'AI Lab'};
+function go(page){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+page));document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.getElementById('crumb').textContent=names[page];window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>t.classList.remove('show'),2300)}
+function range(btn,label){btn.parentElement.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');toast('Период '+label+' · демонстрационные данные')}
+const homeChartSets={
+ '1D':{value:'$24,850.60',change:'+4.82%',line:'M0 166 C35 158 48 142 82 151 S130 124 164 132 S210 96 244 115 S290 84 326 99 S372 72 408 84 S454 109 490 82 S536 64 572 72 S620 38 654 48 S710 20 760 27'},
+ '1W':{value:'$24,850.60',change:'+3.16%',line:'M0 145 C40 152 55 132 90 140 S145 118 180 127 S220 143 260 112 S310 120 350 91 S400 105 440 78 S490 88 530 64 S580 76 620 48 S700 58 760 27'},
+ '1M':{value:'$24,850.60',change:'+4.82%',line:'M0 178 C40 160 60 171 95 143 S150 152 190 126 S240 139 280 111 S330 123 370 90 S420 104 460 84 S510 94 550 63 S610 74 650 47 S710 44 760 27'},
+ '1Y':{value:'$24,850.60',change:'+12.40%',line:'M0 184 C45 170 65 177 105 158 S160 165 200 137 S250 151 290 125 S340 136 380 111 S430 118 470 91 S520 104 560 72 S620 81 660 51 S720 60 760 27'},
+ 'ALL':{value:'$24,850.60',change:'+18.72%',line:'M0 190 C45 184 70 168 110 177 S165 148 205 157 S260 130 300 139 S350 113 390 124 S440 91 480 105 S530 79 570 88 S620 54 660 65 S720 35 760 27'}
+};
+function setHomeRange(key,btn){document.querySelectorAll('#equityPeriods button').forEach(x=>x.classList.toggle('active',x===btn));const d=homeChartSets[key];if(!d)return;const line=document.getElementById('equityLine'),area=document.getElementById('equityArea');if(line&&area){line.setAttribute('d',d.line);area.setAttribute('d',d.line+' V220H0Z');}document.getElementById('homeEquityValue').textContent=d.value;document.getElementById('homeEquityChange').innerHTML='↗ '+d.change+' <span>за выбранный период</span>';}
+
+const agents=[
+['SCOUT','Поиск возможностей','⚡','active'],
+['TECH ANALYST','Технический анализ','#','active'],
+['NEWS','Новости и события','☰','active'],
+['SENTIMENT','Настроения рынка','◎','active'],
+['ON-CHAIN','Блокчейн-метрики','⛓','idle'],
+['DERIVATIVES','Фьючерсы и опционы','⇄','active'],
+['STRATEGY','Торговые стратегии','⌘','active'],
+['QUANT','Количественные модели','Σ','active'],
+['PORTFOLIO','Управление капиталом','◫','active'],
+['RISK','Контроль рисков','⛨','active'],
+['MONITOR','Мониторинг системы','◌','active'],
+['LEARNING','Исследования и обучение','✳','idle'],
+['EXECUTION ENGINE','Исполнение ордеров','⇥','warn']
+];
+const AC={
+  'SCOUT': '#c4b5fd',
+  'TECH ANALYST': '#60a5fa',
+  'NEWS': '#fbbf24',
+  'SENTIMENT': '#f472b6',
+  'ON-CHAIN': '#e2e8f0',
+  'DERIVATIVES': '#fb923c',
+  'STRATEGY': '#c084fc',
+  'QUANT': '#22d3ee',
+  'PORTFOLIO': '#e2e8f0',
+  'RISK': '#f87171',
+  'MONITOR': '#94a3b8',
+  'LEARNING': '#fde047',
+  'EXECUTION ENGINE': '#e2e8f0'
+};
+function agentCard(a){return `<div class="card agent" style="--c:${AC[a[0]]||'#fff'}" onclick="selectAgent('${a[0]}')"><div class="agent-top"><div class="agent-symbol">${a[2]}</div><span class="status">${a[3]==='warn'?'Guarded':'Standby'}</span></div><b>${a[0]}</b><p>${a[1]}</p><div class="tinytext" style="color:var(--c)">Open profile ↗</div></div>`}
+document.getElementById('homeAgents').innerHTML=agents.slice(0,4).map(agentCard).join('');document.getElementById('allAgents').innerHTML=agents.map(agentCard).join('');
+function selectAgent(name){const a=agents.find(x=>x[0]===name);if(!a)return;document.querySelectorAll('.agent').forEach(x=>x.classList.toggle('selected',x.querySelector('b')?.textContent===name));document.getElementById('agentDetail').innerHTML=`<div class="card-title">Agent profile <span class="pill ${a[3]==='active'?'good':'warn'}">${a[3].toUpperCase()}</span></div><div style="font-size:20px;font-weight:700;margin:18px 0 5px">${a[0]}</div><p class="sub">${a[1]}. Специализированный модуль KYNEX, передающий выводы центральному координатору CORE. В реальной версии доступ к данным и действиям ограничивается ролью агента.</p><div class="setting"><div><b>Состояние</b><p>Демонстрационный профиль</p></div><span class="pill">${a[3]}</span></div><div class="setting"><div><b>Управление</b><p>Задачи и права доступа</p></div></div><button class="btn" style="width:100%;margin-top:12px" onclick="go('lab')">Открыть Commander в AI Lab ↗</button>`;}
+document.querySelectorAll('.node[data-agent]').forEach(n=>n.addEventListener('click',()=>selectAgent(n.dataset.agent)));
+document.querySelectorAll('[data-lab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-lab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.lab-panel').forEach(p=>p.style.display=p.id==='lab-'+b.dataset.lab?'block':'none')}));
+function sendChat(){const input=document.getElementById('chatInput');const v=input.value.trim();if(!v)return;const log=document.getElementById('chatLog');const u=document.createElement('div');u.className='bubble user';u.innerHTML='<small>YOU · TASK</small>';u.append(document.createTextNode(v));log.append(u);input.value='';log.scrollTop=log.scrollHeight;const task=enqueueTask(v,'COMMANDER');const ack=document.createElement('div');ack.className='bubble';ack.innerHTML='<small>KYNEX CORE · TASK '+task.id+'</small>';ack.append(document.createTextNode('Задача поставлена в очередь. CORE назначил профильных агентов; результаты появятся по мере завершения параллельных этапов.'));log.append(ack);log.scrollTop=log.scrollHeight;go('agents');}
+function filterAssets(q){document.querySelectorAll('#assetTable tbody tr').forEach(r=>r.style.display=r.textContent.toLowerCase().includes(q.toLowerCase())?'':'none')}
+
+// KYNEX local orchestration engine. It genuinely schedules local workers in parallel,
+// routes structured messages, aggregates outputs and runs a mandatory Risk Gate.
+// Worker intelligence/data are rule-based demo adapters until a secured backend is connected.
+const HQ={queue:[],tasks:new Map(),logs:[],running:0,maxParallel:4,paused:false,nextId:1,agentState:{},agentActive:{}};
+const agentMeta={
+ 'SCOUT':{role:'Поиск возможностей',icon:'⌁'},'TECH ANALYST':{role:'Технический анализ',icon:'⌗'},'NEWS':{role:'Новости и события',icon:'▤'},'SENTIMENT':{role:'Настроения рынка',icon:'◉'},'ON-CHAIN':{role:'Блокчейн-метрики',icon:'⛓'},'DERIVATIVES':{role:'Фьючерсы и опционы',icon:'⇄'},'STRATEGY':{role:'Торговые сценарии',icon:'⌘'},'QUANT':{role:'Количественные модели',icon:'∑'},'PORTFOLIO':{role:'Управление капиталом',icon:'◫'},'RISK':{role:'Независимый контроль рисков',icon:'⛨'},'MONITOR':{role:'Контроль состояния',icon:'◌'},'LEARNING':{role:'Исследования',icon:'✳'},'EXECUTION ENGINE':{role:'Контур исполнения · заблокирован',icon:'⇥'}
+};
+function hqLog(agent,message,kind='info',taskId='—'){
+ const item={time:new Date(),agent,message,kind,taskId};HQ.logs.unshift(item);HQ.logs=HQ.logs.slice(0,80);renderHQLog();const homeFeed=document.getElementById('homeEventList');if(homeFeed){const ev=document.createElement('div');ev.className='home-event';const mark=document.createElement('span');mark.className='event-mark '+(agent==='RISK'?'mark-risk':agent==='KYNEX CORE'?'mark-core':'mark-scout');mark.textContent=agent==='RISK'?'R':agent==='KYNEX CORE'?'K':(agent||'A').slice(0,1);const body=document.createElement('div');const title=document.createElement('b');title.textContent=agent+' · '+message;const sub=document.createElement('small');sub.textContent='Локальное событие · задача '+taskId;body.append(title,sub);const tm=document.createElement('time');tm.textContent=item.time.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'});ev.append(mark,body,tm);homeFeed.prepend(ev);while(homeFeed.children.length>5)homeFeed.lastElementChild.remove();const empty=document.getElementById('homeEventEmpty');if(empty)empty.style.display='none';}
+ const feed=document.getElementById('hqFeed');if(feed){const el=document.createElement('div');el.className='hq-event';el.innerHTML='<span class="event-led"></span><div><b></b><small></small></div>';el.querySelector('b').textContent=agent+' · '+message;el.querySelector('small').textContent='Задача '+taskId+' · '+item.time.toLocaleTimeString('ru-RU',{hour12:false});feed.prepend(el);while(feed.children.length>4)feed.lastChild.remove();}
+ const clock=document.getElementById('hqClock');if(clock)clock.textContent='SYNC '+item.time.toLocaleTimeString('ru-RU',{hour12:false});
+}
+function renderHQLog(){const root=document.getElementById('interactionLog');if(!root)return;if(!HQ.logs.length){root.innerHTML='<div class="empty-state">Журнал пока пуст.</div>';return;}root.innerHTML=HQ.logs.slice(0,35).map(x=>`<div class="log-item" data-kind="${x.kind}"><div class="log-top"><b>${escapeHTML(x.agent)}</b><time>${x.time.toLocaleTimeString('ru-RU',{hour12:false})} · ${x.taskId}</time></div><p>${escapeHTML(x.message)}</p></div>`).join('');}
+function escapeHTML(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function chooseWorkers(prompt){const q=prompt.toLowerCase();let list=['SCOUT','TECH ANALYST','NEWS','SENTIMENT','STRATEGY','QUANT'];if(/on.?chain|блокчейн|кошел|адрес|whale|кит/.test(q))list.splice(4,0,'ON-CHAIN');if(/фандинг|funding|фьючер|опцион|дериватив|ликвидац/.test(q))list.splice(4,0,'DERIVATIVES');if(/портфел|капитал|позици|аллокац/.test(q))list.push('PORTFOLIO');if(/новост|событи|регуляц|твит|инфоповод/.test(q)&&!list.includes('NEWS'))list.push('NEWS');if(/настроен|sentiment|соцсет/.test(q)&&!list.includes('SENTIMENT'))list.push('SENTIMENT');if(/только|риск|безопас|просадк/.test(q)&&!list.includes('RISK'))list.push('RISK');return [...new Set(list.filter(x=>x!=='RISK')),'RISK'];}
+function enqueueFromHQ(){const input=document.getElementById('hqTaskInput');const v=input.value.trim();if(!v){toast('Сначала опишите задачу');return;}enqueueTask(v,'HEADQUARTERS');input.value='';}
+function enqueueTask(prompt,source='HEADQUARTERS'){
+ const id='KX-'+String(HQ.nextId++).padStart(4,'0');const workers=chooseWorkers(prompt);const t={id,prompt,source,workers,results:[],context:[],status:'queued',progress:0,created:new Date(),started:null,finished:null};HQ.tasks.set(id,t);HQ.queue.push(id);hqLog('KYNEX CORE','Принял запрос и сформировал план из '+workers.length+' этапов','info',id);workers.forEach(a=>hqLog('CORE → '+a,'Назначение получено; ожидает свободный worker','info',id));renderTaskQueue();pumpQueue();return t;
+}
+function pumpQueue(){if(HQ.paused)return;while(HQ.running<HQ.maxParallel&&HQ.queue.length){const id=HQ.queue.shift();const t=HQ.tasks.get(id);if(!t||t.status!=='queued')continue;runTask(t);}updateEngineStats();}
+async function runTask(t){HQ.running++;t.status='running';t.started=new Date();hqLog('KYNEX CORE','Запуск параллельного выполнения: '+t.workers.join(', '),'info',t.id);renderTaskQueue();updateAgentVisuals();
+ const jobs=t.workers.map((agent,index)=>runWorker(t,agent,index));
+ await Promise.all(jobs);
+ t.status='aggregating';HQ.agentState['RISK']='busy';updateAgentVisuals();hqLog('KYNEX CORE','Все аналитические ответы собраны; запускаю независимый Risk Gate','info',t.id);renderTaskQueue();
+ const risk=buildRiskVerdict(t);HQ.agentState['RISK']='idle';t.results.push({agent:'RISK GATE',text:risk,kind:'risk'});hqLog('RISK MANAGER',risk,'risk',t.id);
+ t.status='completed';t.progress=100;t.finished=new Date();HQ.running--;hqLog('KYNEX CORE','Сводный результат готов: '+t.results.length+' сообщений; исполнение ордеров не выполнялось','result',t.id);renderTaskQueue();updateAgentVisuals();updateEngineStats();showTaskSummary(t);pumpQueue();
+}
+function runWorker(t,agent,index){return new Promise(resolve=>{HQ.agentActive[agent]=(HQ.agentActive[agent]||0)+1;HQ.agentState[agent]='busy';updateAgentVisuals();hqLog(agent,'Начал обработку назначенного подзапроса; общий контекст задачи доступен','info',t.id);const delay=850+(index%4)*430+Math.floor(Math.random()*500);setTimeout(()=>{const result=analyzeLocally(agent,t.prompt,t.context);const packet={from:agent,text:result,at:new Date()};t.context.push(packet);t.results.push({agent,text:result,kind:'result'});t.progress=Math.round(t.results.length/t.workers.length*90);HQ.agentActive[agent]=Math.max(0,(HQ.agentActive[agent]||1)-1);if(!HQ.agentActive[agent])HQ.agentState[agent]='idle';hqLog(agent,result,'result',t.id);hqLog(agent+' → CORE BUS','Пакет результата опубликован в общей шине сообщений','info',t.id);const receivers=t.workers.filter(x=>x!==agent&&x!=='RISK').slice(0,2);receivers.forEach(to=>hqLog('CORE BUS → '+to,'Общий контекст обновлён: доступен вывод '+agent,'info',t.id));renderTaskQueue();updateAgentVisuals();resolve();},delay);});}
+function analyzeLocally(agent,prompt,context=[]){const asset=(prompt.match(/\b(BTC|ETH|SOL|BNB|XRP|DOGE|ADA)\b/i)||[])[0]?.toUpperCase()||'выбранного актива';const q=prompt.toLowerCase();const outputs={
+ 'SCOUT':`SCOUT: запрос классифицирован для ${asset}. Проверить объём, волатильность, ликвидность и отклонение от базового диапазона. В этой сборке рыночный feed не подключён — фактический сигнал не подтверждён.`,
+ 'TECH ANALYST':`TECH ANALYST: технический чек-лист для ${asset}: структура старшего таймфрейма → уровни → импульс → подтверждение объёмом. Направление не присваивается без свечных данных.`,
+ 'NEWS':`NEWS: новостной контекст требует проверки первоисточников, времени публикации и влияния на актив. Внешние новостные источники не подключены; непроверенные заголовки не учитываются.`,
+ 'SENTIMENT':`SENTIMENT: социальный и позиционный фон не измерен. Для вывода нужны выборка сообщений, временное окно и нормализация спама; без источника sentiment считается нейтральным/неизвестным.`,
+ 'ON-CHAIN':`ON-CHAIN: для ${asset} требуется сверить потоки биржевых адресов, крупные транзакции и активность сети. Ончейн-провайдер не подключён, поэтому метрики не выдумываются.`,
+ 'DERIVATIVES':`DERIVATIVES: проверить funding, open interest, basis и кластеры ликвидаций. Биржевые деривативные данные отсутствуют; перекос плеча пока не подтверждён.`,
+ 'STRATEGY':`STRATEGY: сформированы условные сценарии: продолжение движения после подтверждения; откат к уровню с повторной оценкой; отказ от входа при слабом подтверждении. Это не торговая рекомендация.`,
+ 'QUANT':`QUANT: статистическая проверка невозможна без исторического ряда и комиссии. До загрузки данных Sharpe, expectancy и вероятность сценариев не рассчитываются.`,
+ 'PORTFOLIO':`PORTFOLIO: перед решением оценить долю позиции, корреляцию с текущими активами, свободный капитал и лимит потерь. Баланс аккаунта в этой сборке не подключён.`,
+ 'RISK':`RISK: независимая проверка требует размера позиции, стоп-уровня, плеча и дневного лимита. Пока параметры не заданы, разрешение на исполнение отсутствует.`};return outputs[agent]||`${agent}: обработал запрос по локальному набору правил. Для фактического вывода требуется подключить соответствующий источник данных.`;}
+function buildRiskVerdict(t){const missing=[];if(!/стоп|stop|лимит|риск/.test(t.prompt.toLowerCase()))missing.push('не задан стоп/лимит риска');if(!/капитал|депозит|баланс|размер позиции/.test(t.prompt.toLowerCase()))missing.push('не задан размер капитала или позиции');return 'RISK GATE: '+(missing.length?'HOLD — '+missing.join('; ')+'.':'REVIEW — параметры описаны текстом, но не проверены по аккаунту.')+' Автоисполнение заблокировано; требуется отдельное подтверждение и серверная проверка.';}
+function renderTaskQueue(){const root=document.getElementById('taskQueue');if(!root)return;const arr=[...HQ.tasks.values()].sort((a,b)=>b.created-a.created).slice(0,16);if(!arr.length)root.innerHTML='<div class="empty-state">Пока нет задач. Отправьте запрос через поле выше или Commander.</div>';else root.innerHTML=arr.map(t=>{const pct=t.status==='completed'?100:t.progress;const status={queued:'В очереди',running:'В работе',aggregating:'Проверка риска',completed:'Готово'}[t.status]||t.status;return `<div class="task-item"><div class="task-item-top"><b>${t.id}</b><span class="pill ${t.status==='completed'?'good':t.status==='running'?'warn':''}">${status}</span></div><p>${escapeHTML(t.prompt)}</p><div class="task-progress"><span style="width:${pct}%"></span></div><div class="task-agents">${t.workers.map(a=>escapeHTML(a)).join(' · ')}</div>${t.status==='completed'?`<button class="btn tiny" style="margin-top:8px" onclick="showTaskSummary(HQ.tasks.get('${t.id}'))">Открыть отчёт</button>`:''}</div>`}).join('');const q=document.getElementById('queueCount');if(q)q.textContent=HQ.queue.length;const c=document.getElementById('taskCount');if(c)c.textContent=HQ.tasks.size+' задач';}
+function updateEngineStats(){const homeRun=document.getElementById('homeCoreRunning');if(homeRun)homeRun.textContent=HQ.running;const homeQueue=document.getElementById('homeCoreQueued');if(homeQueue)homeQueue.textContent=HQ.queue.length;const runStat=document.getElementById('hqRunningStat');if(runStat)runStat.textContent=HQ.running;const queuedStat=document.getElementById('hqQueuedStat');if(queuedStat)queuedStat.textContent=HQ.queue.length;const activeBadge=document.getElementById('hqActiveBadge');if(activeBadge)activeBadge.textContent=Object.values(HQ.agentActive).filter(v=>v>0).length+' WORKING';const p=document.getElementById('parallelCount');if(p)p.textContent=HQ.running+' / '+HQ.maxParallel;const q=document.getElementById('queueCount');if(q)q.textContent=HQ.queue.length;const s=document.getElementById('engineState');if(s)s.textContent=HQ.paused?'ENGINE PAUSED':'ENGINE READY';const b=document.getElementById('pauseEngineBtn');if(b)b.textContent=HQ.paused?'Продолжить':'Пауза';}
+function pauseEngine(){HQ.paused=!HQ.paused;hqLog('KYNEX CORE',HQ.paused?'Постановка новых worker-задач приостановлена':'Очередь возобновлена','info','SYS');updateEngineStats();if(!HQ.paused)pumpQueue();}
+function updateAgentVisuals(){document.querySelectorAll('.node[data-agent]').forEach(n=>{const name=n.dataset.agent; n.classList.toggle('busy',HQ.agentState[name]==='busy');});document.querySelectorAll('.agent').forEach(card=>{const name=card.querySelector('b')?.textContent;if(!name)return;card.classList.toggle('busy',HQ.agentState[name]==='busy');const st=card.querySelector('.status');if(st&&HQ.agentState[name]==='busy'){st.textContent='Working';st.className='status';}else if(st&&HQ.agentState[name]!=='busy'){st.textContent='Standby';st.className='status idle';}});}
+function showTaskSummary(t){if(!t)return;const log=document.getElementById('chatLog');if(log){const box=document.createElement('div');box.className='bubble';const small=document.createElement('small');small.textContent='KYNEX CORE · '+t.id+' · СВОДКА';box.append(small);const title=document.createElement('b');title.textContent='Задача завершена · '+t.results.length+' результатов';box.append(title);t.results.forEach(r=>{const p=document.createElement('p');p.style.margin='8px 0 0';p.style.color='#c3cbd3';p.textContent=r.agent+': '+r.text;box.append(p)});log.append(box);go('lab');log.scrollTop=log.scrollHeight;}else toast('Отчёт '+t.id+' готов');}
+// Initial HQ state is quiet: no fabricated heartbeat or fake market events.
+renderTaskQueue();renderHQLog();updateEngineStats();updateAgentVisuals();
+// Compact navigation remains available after switching any screen.
+const _go=go;go=function(page){_go(page);document.querySelectorAll('.page.active input').forEach(x=>{if(x.type==='text')x.blur()});};
+
+</script>
+</body></html>
